@@ -38,10 +38,6 @@ color: #ff9254;
 padding: 30px 10px;
 }
 
-.SignInCol {
-height: 320px;
-}
-
-.SignUpCol {
+.SignUpCol,.SignInCol {
 height: 450px;
 }
