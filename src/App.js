@@ -1,8 +1,11 @@
-import './App.css';
+import "./App.css";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <h1>Reader's angle</h1>
+    <div className="App">
+      <NavBar />
+    </div>
   );
 }
 
