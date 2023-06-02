@@ -3,24 +3,37 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
+import axios from "axios";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const addBookPostIcon = (
     <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/bookpost"
-      >
-        <i class="fa-solid fa-book-medical"></i>Share a great book
-      </NavLink>
-  )
+      className={styles.NavLink}
+      activeClassName={styles.Active}
+      to="/bookpost"
+    >
+      <i class="fa-solid fa-book-medical"></i>Share a great book
+    </NavLink>
+  );
   const loggedOutIcons = (
     <>
-      {" "}
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -34,21 +47,20 @@ const NavBar = () => {
         activeClassName={styles.Active}
       >
         <i className="fas fa-user-plus"></i>Sign up
-      </NavLink>{" "}
+      </NavLink>
     </>
   );
-  const loggedInIcons = <>
-  <NavLink
+
+  const loggedInIcons = (
+    <>
+      <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/bookposts"
       >
         <i class="fa-solid fa-book-open"></i>Books
       </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        to="/liked"
-      >
+      <NavLink className={styles.NavLink} to="/liked">
         <i className="fas fa-heart"></i>Liked
       </NavLink>
       <NavLink
@@ -58,7 +70,12 @@ const NavBar = () => {
       >
         <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
       </NavLink>
-  {currentUser?.username}</>;
+      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+        <i className="fas fa-sign-out-alt"></i>Sign out
+      </NavLink>
+      {currentUser?.username}
+    </>
+  );
 
   return (
     <Navbar className={styles.NavBar} expand="md" fixed="top">
