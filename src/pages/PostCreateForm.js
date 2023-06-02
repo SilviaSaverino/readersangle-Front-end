@@ -31,24 +31,54 @@ function PostCreateForm() {
     });
   };
 
+  const handleChangeImage = (event) => {
+    URL.revokeObjectURL(image);
+    if (event.target.files.length) {
+      setPostData({
+        ...postData,
+        image: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+  };
+
   const textFields = (
     <div className="text-center">
       <Form.Group>
         <Form.Label>Book title</Form.Label>
-        <Form.Control type="text" name="title" value={title} onChange={handleChange} />
+        <Form.Control
+          type="text"
+          name="title"
+          value={title}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Author</Form.Label>
-        <Form.Control type="text" name="author" value={author} onChange={handleChange} />
+        <Form.Control
+          type="text"
+          name="author"
+          value={author}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Select a genre</Form.Label>
-        <Form.Control type="select" name="genre" value={genre} onChange={handleChange} />
+        <Form.Control
+          type="select"
+          name="genre"
+          value={genre}
+          onChange={handleChange}
+        />
         <Form.Control as="select">{/* GET CHOICES FROM API */}</Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label>Post content</Form.Label>
-        <Form.Control as="textarea" name="content" value={content} onChange={handleChange} />
+        <Form.Control
+          as="textarea"
+          name="content"
+          value={content}
+          onChange={handleChange}
+        />
       </Form.Group>
 
       <Button
@@ -77,6 +107,7 @@ function PostCreateForm() {
               >
                 <Asset src={Upload} message="Tap or click to" />
               </Form.Label>
+              <Form.File id="image-upload" accept="image/*" onChange={handleChangeImage}/>
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
           </Container>
