@@ -7,6 +7,16 @@ import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+
+  const addBookPostIcon = (
+    <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/bookpost"
+      >
+        <i class="fa-solid fa-book-medical"></i>Share a great book
+      </NavLink>
+  )
   const loggedOutIcons = (
     <>
       {" "}
@@ -26,7 +36,28 @@ const NavBar = () => {
       </NavLink>{" "}
     </>
   );
-  const loggedInIcons = <>{currentUser?.username}</>;
+  const loggedInIcons = <>
+  <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/bookposts"
+      >
+        <i class="fa-solid fa-book-open"></i>Books
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        to="/liked"
+      >
+        <i className="fas fa-heart"></i>Liked
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to={`/profiles/${currentUser?.profile_id}`}
+      >
+        <img src={currentUser?.profile_image} />
+      </NavLink>
+  {currentUser?.username}</>;
 
   return (
     <Navbar className={styles.NavBar} expand="md" fixed="top">
@@ -36,6 +67,7 @@ const NavBar = () => {
             <img className={styles.Logo} src={logo} alt="logo" height="55" />
           </Navbar.Brand>
         </NavLink>
+        {currentUser && addBookPostIcon}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">

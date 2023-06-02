@@ -28,24 +28,24 @@ export const CurrentUserProvider = ({ children }) => {
 
   useMemo(() => {
     axiosReq.interceptors.request.use(
-      async (config) => {
-        try {
-          await axios.post("/dj-rest-auth/token/refresh/");
-        } catch (err) {
-          setCurrentUser((prevCurrentUser) => {
-            if (prevCurrentUser) {
-              history.push("/signin");
-            }
-            return null;
-          });
+        async (config) => {
+          try {
+            await axios.post("/dj-rest-auth/token/refresh/");
+          } catch (err) {
+            setCurrentUser((prevCurrentUser) => {
+              if (prevCurrentUser) {
+                history.push("/signin");
+              }
+              return null;
+            });
+            return config;
+          }
           return config;
+        },
+        (err) => {
+          return Promise.reject(err);
         }
-        return config;
-      },
-      (err) => {
-        return Promise.reject(err);
-      }
-    );
+      );
 
     axiosRes.interceptors.response.use(
       (response) => response,
