@@ -13,14 +13,33 @@ import appStyles from "../App.module.css";
 import btnStyles from "../styles/Button.module.css";
 
 function PostCreateForm() {
-
   const [errors, setErrors] = useState({});
-
 
   const textFields = (
     <div className="text-center">
-         
-    
+      <Form.Group>
+        <Form.Label>Book title</Form.Label>
+        <Form.Control type="text" name="title" />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Author</Form.Label>
+        <Form.Control type="text" name="author" />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Select a genre</Form.Label>
+        <Form.Control type="select" name="genre" />
+        <Form.Control as="select">
+        {/* GET CHOICES FROM API */}
+    </Form.Control>
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Post content</Form.Label>
+        <Form.Control as="textarea" name="content" />
+      </Form.Group>
+
+
+
+
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => {}}
@@ -41,14 +60,12 @@ function PostCreateForm() {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              
-                <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="image-upload"
-                >
-                  <Asset src={Upload} message="Tap or click to upload an image" />
-                </Form.Label>
-
+              <Form.Label
+                className="d-flex justify-content-center"
+                htmlFor="image-upload"
+              >
+                <Asset src={Upload} message="Tap or click to" />
+              </Form.Label>
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
           </Container>
