@@ -30,7 +30,7 @@ const NavBar = () => {
     <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
-      to="/bookpost"
+      to="/posts/create"
     >
       <i class="fa-solid fa-book-medical"></i>Share a great book
     </NavLink>
