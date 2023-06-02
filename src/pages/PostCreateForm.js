@@ -7,38 +7,49 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
 import Upload from "../assets/upload.png";
-import Asset from "../components/Asset.js"
+import Asset from "../components/Asset.js";
 import styles from "../styles/PostCreateEditForm.module.css";
 import appStyles from "../App.module.css";
 import btnStyles from "../styles/Button.module.css";
 
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
+  const [postData, setPostData] = useState({
+    title: "",
+    author: "",
+    genre: "",
+    content: "",
+    image: "",
+  });
+
+  const { title, author, genre, content, image } = postData;
+
+  const handleChange = (event) => {
+    setPostData({
+      ...postData,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   const textFields = (
     <div className="text-center">
       <Form.Group>
         <Form.Label>Book title</Form.Label>
-        <Form.Control type="text" name="title" />
+        <Form.Control type="text" name="title" value={title} onChange={handleChange} />
       </Form.Group>
       <Form.Group>
         <Form.Label>Author</Form.Label>
-        <Form.Control type="text" name="author" />
+        <Form.Control type="text" name="author" value={author} onChange={handleChange} />
       </Form.Group>
       <Form.Group>
         <Form.Label>Select a genre</Form.Label>
-        <Form.Control type="select" name="genre" />
-        <Form.Control as="select">
-        {/* GET CHOICES FROM API */}
-    </Form.Control>
+        <Form.Control type="select" name="genre" value={genre} onChange={handleChange} />
+        <Form.Control as="select">{/* GET CHOICES FROM API */}</Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label>Post content</Form.Label>
-        <Form.Control as="textarea" name="content" />
+        <Form.Control as="textarea" name="content" value={content} onChange={handleChange} />
       </Form.Group>
-
-
-
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
