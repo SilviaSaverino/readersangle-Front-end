@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -12,6 +12,8 @@ import styles from "../styles/PostCreateEditForm.module.css";
 import appStyles from "../App.module.css";
 import btnStyles from "../styles/Button.module.css";
 import { Image } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import { axiosReq } from "../api/axiosDefaults";
 
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
@@ -22,6 +24,7 @@ function PostCreateForm() {
     content: "",
     image: "",
   });
+
   const genreChoices = [
     { value: "fiction", label: "Fiction" },
     { value: "non-fiction", label: "Non-Fiction" },
@@ -36,6 +39,9 @@ function PostCreateForm() {
   ];
 
   const { title, author, genre, content, image } = postData;
+
+  const imageInput = useRef(null)
+  const history = useHistory()
 
   const handleChange = (event) => {
     setPostData({
@@ -53,6 +59,27 @@ function PostCreateForm() {
       });
     }
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const formData = new FormData();
+
+    formData.append('title', title);
+    formData.append('author', author);
+    formData.append('genre', genre);
+    formData.append('content', content);
+    formData.append("image", imageInput.current.files[0]);
+
+    try {
+      const {data} = await axiosReq.post('/posts/', formData)
+      history.push(`/posts/${data.id}`)
+    } catch(err) {
+      console.log(err)
+      if (err.response?.status !== 401){
+        setErrors(err.response?.data)
+        }
+    }
+  }
 
   const textFields = (
     <div className="text-center">
@@ -112,7 +139,7 @@ function PostCreateForm() {
   );
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="py-2 p-0 p-md-2" md={5} lg={4}>
           <Container
@@ -150,6 +177,7 @@ function PostCreateForm() {
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
+                ref={imageInput}
               />
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
