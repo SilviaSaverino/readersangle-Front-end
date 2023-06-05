@@ -66,7 +66,7 @@ function PostCreateForm() {
 
     formData.append("title", title);
     formData.append("author", author);
-    formData.append("genre", genre);
+    formData.append("genre_filter", genre);
     formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
 
