@@ -22,6 +22,18 @@ function PostCreateForm() {
     content: "",
     image: "",
   });
+  const genreChoices = [
+    { value: "fiction", label: "Fiction" },
+    { value: "non-fiction", label: "Non-Fiction" },
+    { value: "mystery", label: "Mystery" },
+    { value: "fantasy", label: "Fantasy" },
+    { value: "romance", label: "Romance" },
+    { value: "thriller", label: "Thriller" },
+    { value: "biography", label: "Biography" },
+    { value: "poetry", label: "Poetry" },
+    { value: "children", label: "Children" },
+    { value: "cookbooks", label: "Cookbooks" },
+  ];
 
   const { title, author, genre, content, image } = postData;
 
@@ -65,15 +77,20 @@ function PostCreateForm() {
       <Form.Group>
         <Form.Label>Genre:</Form.Label>
         <Form.Control
-          type="select"
+          as="select"
           name="genre"
           value={genre}
           onChange={handleChange}
-        />
-        <Form.Control as="select">{/* GET CHOICES FROM API */}</Form.Control>
+        >
+          {genreChoices.map((genre) => (
+            <option key={genre.value} value={genre.value}>
+              {genre.label}
+            </option>
+          ))}
+        </Form.Control>
       </Form.Group>
       <Form.Group>
-        <Form.Label>Post content:</Form.Label>
+        <Form.Label>Book Synopsis:</Form.Label>
         <Form.Control
           as="textarea"
           name="content"
@@ -97,41 +114,48 @@ function PostCreateForm() {
   return (
     <Form>
       <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
+        <Col className="py-2 p-0 p-md-2" md={5} lg={4}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-                {image ? (
-                    <>
-                    <figure>
-                      <Image className={appStyles.Image} src={image} rounded />
-                    </figure>
-                    <div>
-                      <Form.Label
-                        className={`${btnStyles.Button} ${btnStyles.Dull} btn`}
-                        htmlFor="image-upload"
-                      >
-                        Change your book image
-                      </Form.Label>
-                    </div>
-                  </>
-
-                ):(
+              {image ? (
+                <>
+                  <figure>
+                    <Image className={appStyles.Image} src={image} rounded />
+                  </figure>
+                  <div>
                     <Form.Label
-                className="d-flex justify-content-center"
-                htmlFor="image-upload"
-              >
-                <Asset src={Upload} message="Tap or click to upload your image" />
-              </Form.Label>
-                )}
-              
-              <Form.File className="d-none" id="image-upload" accept="image/*" onChange={handleChangeImage}/>
+                      className={`${btnStyles.Button} ${btnStyles.Dull} btn`}
+                      htmlFor="image-upload"
+                    >
+                      Change your book image
+                    </Form.Label>
+                  </div>
+                </>
+              ) : (
+                <Form.Label
+                  className="d-flex justify-content-center"
+                  htmlFor="image-upload"
+                >
+                  <Asset
+                    src={Upload}
+                    message="Tap or click to upload your image"
+                  />
+                </Form.Label>
+              )}
+
+              <Form.File
+                className="d-none"
+                id="image-upload"
+                accept="image/*"
+                onChange={handleChangeImage}
+              />
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+        <Col md={7} lg={8} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>
