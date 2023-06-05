@@ -11,7 +11,7 @@ import Asset from "../components/Asset.js";
 import styles from "../styles/PostCreateEditForm.module.css";
 import appStyles from "../App.module.css";
 import btnStyles from "../styles/Button.module.css";
-import { Image } from "react-bootstrap";
+import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../api/axiosDefaults";
 
@@ -40,8 +40,8 @@ function PostCreateForm() {
 
   const { title, author, genre, content, image } = postData;
 
-  const imageInput = useRef(null)
-  const history = useHistory()
+  const imageInput = useRef(null);
+  const history = useHistory();
 
   const handleChange = (event) => {
     setPostData({
@@ -61,25 +61,25 @@ function PostCreateForm() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const formData = new FormData();
 
-    formData.append('title', title);
-    formData.append('author', author);
-    formData.append('genre', genre);
-    formData.append('content', content);
+    formData.append("title", title);
+    formData.append("author", author);
+    formData.append("genre", genre);
+    formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
 
     try {
-      const {data} = await axiosReq.post('/posts/', formData)
-      history.push(`/posts/${data.id}`)
-    } catch(err) {
-      console.log(err)
-      if (err.response?.status !== 401){
-        setErrors(err.response?.data)
-        }
+      const { data } = await axiosReq.post("/posts/", formData);
+      history.push(`/posts/${data.id}`);
+    } catch (err) {
+      console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
-  }
+  };
 
   const textFields = (
     <div className="text-center">
@@ -92,6 +92,11 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx} className="text-center">
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Author:</Form.Label>
         <Form.Control
@@ -101,6 +106,11 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.author?.map((message, idx) => (
+        <Alert variant="warning" key={idx} className="text-center">
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Genre:</Form.Label>
         <Form.Control
@@ -116,6 +126,11 @@ function PostCreateForm() {
           ))}
         </Form.Control>
       </Form.Group>
+      {errors.genre?.map((message, idx) => (
+        <Alert variant="warning" key={idx} className="text-center">
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Book Synopsis:</Form.Label>
         <Form.Control
@@ -125,6 +140,11 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx} className="text-center">
+          {message}
+        </Alert>
+      ))}
 
       <Button className={`${btnStyles.Button} ${btnStyles.Dull}`} type="submit">
         Create
@@ -135,7 +155,11 @@ function PostCreateForm() {
       >
         Cancel
       </Button>
-      
+      {errors.non_field_errors?.map((message, idx) => (
+        <Alert variant="warning" key={idx} className="text-center">
+          {message}
+        </Alert>
+      ))}
     </div>
   );
 
@@ -181,6 +205,11 @@ function PostCreateForm() {
                 ref={imageInput}
               />
             </Form.Group>
+            {errors.image?.map((message, idx) => (
+        <Alert variant="warning" key={idx} className="text-center">
+          {message}
+        </Alert>
+      ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
