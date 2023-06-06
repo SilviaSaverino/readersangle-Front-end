@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Card,
+  Form,
   Media,
   OverlayTrigger,
   Row,
@@ -110,6 +111,7 @@ const Post = (props) => {
               <i className="far fa-comments" />
             </Link>
             {review_count}
+            
           </div>
             </Col>
           </Row>
