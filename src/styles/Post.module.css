@@ -11,8 +11,13 @@ h5 {
   margin: 0 0;
 }
 
+.PostBar {
+    background-color: #fcf8ed;
+    margin-top: 15px;
+}
+
 .Heart {
-  color: #f85032;
+  color: #ff9254;
 }
 
 .Heart:hover {
@@ -20,5 +25,12 @@ h5 {
 }
 
 .HeartOutline:hover {
-  color: #f85032;
+  color: #ff9254;
+}
+
+.CustomMedia {
+  background-color: #fcf8ed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

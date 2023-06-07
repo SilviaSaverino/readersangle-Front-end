@@ -2,6 +2,7 @@ import React from "react";
 import {
   Card,
   Media,
+  Form,
   OverlayTrigger,
   Row,
   Col,
@@ -37,6 +38,11 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  const postStatus = [
+    { value: "read", label: "Read" },
+    { value: "will read", label: "Will read" },
+  ];
+
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
@@ -69,11 +75,10 @@ const Post = (props) => {
     }
   };
 
-
   return (
     <Card className={styles.Post}>
       <Card.Body>
-        <Media className="align-items-center justify-content-between">
+        <Media className={styles.CustomMedia}>
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
             {owner}
@@ -114,9 +119,17 @@ const Post = (props) => {
               )}
             </Col>
           </Row>
-          <Row>
-            <Col className="text-right">
-              <div className={styles.PostBar}>
+          <Row className={styles.PostBar}>
+            <Col className="text-center">
+              <Form>
+                <Form.Group>
+                  <Form.Check inline type="radio" label="Read" />
+                  <Form.Check inline type="radio" label="Will read!" />
+                </Form.Group>
+              </Form>
+            </Col>
+            <Col className="text-center">
+              <div>
                 {is_owner ? (
                   <OverlayTrigger
                     placement="top"
@@ -125,7 +138,7 @@ const Post = (props) => {
                     <i className="far fa-heart" />
                   </OverlayTrigger>
                 ) : like_id ? (
-                    <span onClick={handleUnlike}>
+                  <span onClick={handleUnlike}>
                     <i className={`fas fa-heart ${styles.Heart}`} />
                   </span>
                 ) : currentUser ? (
