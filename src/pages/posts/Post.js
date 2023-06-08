@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   Media,
@@ -28,7 +28,7 @@ const Post = (props) => {
     content,
     genre_filter,
     // followed_count,
-    // post_status,
+    post_status,
     image,
     updated_at,
     postPage,
@@ -38,10 +38,31 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
-  const postStatus = [
-    { value: "read", label: "Read" },
-    { value: "will read", label: "Will read" },
+  const postStatusChoices = [
+    { value: "Read", label: "Read" },
+    { value: "Will read", label: "Will Read" },
   ];
+
+  const [selectedStatus, setSelectedStatus] = useState(props.post_status);
+
+  const handleStatusChoice = async (e) => {
+    const status = e.target.value;
+    setSelectedStatus(status);
+  
+    try {
+      await axiosRes.patch(`/posts/${id}/`, { post_status: status });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) =>
+          post.id === id ? { ...post, post_status: status } : post
+        ),
+      }));
+      console.log("Updated post:", { ...props, post_status: status });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
 
   const handleLike = async () => {
     try {
@@ -122,10 +143,18 @@ const Post = (props) => {
           <Row className={styles.PostBar}>
             <Col className="text-center">
               <Form>
-                <Form.Group>
-                  <Form.Check inline type="radio" label="Read" />
-                  <Form.Check inline type="radio" label="Will read!" />
-                </Form.Group>
+                {postStatusChoices.map((choice) => (
+                  <Form.Check
+                    key={choice.value}
+                    type="radio"
+                    id={`status-${choice.value}-${id}`}
+                    label={choice.label}
+                    name={`status-${id}`}
+                    value={choice.value}
+                    checked={selectedStatus === choice.value}
+                    onChange={handleStatusChoice}
+                  />
+                ))}
               </Form>
             </Col>
             <Col className="text-center">
