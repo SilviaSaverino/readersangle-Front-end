@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState} from "react";
 import {
   Card,
   Media,
@@ -27,8 +27,6 @@ const Post = (props) => {
     author,
     content,
     genre_filter,
-    // followed_count,
-    post_status,
     image,
     updated_at,
     postPage,
@@ -48,7 +46,7 @@ const Post = (props) => {
   const handleStatusChoice = async (e) => {
     const status = e.target.value;
     setSelectedStatus(status);
-  
+
     try {
       await axiosRes.patch(`/posts/${id}/`, { post_status: status });
       setPosts((prevPosts) => ({
@@ -109,7 +107,6 @@ const Post = (props) => {
             {is_owner && postPage && "logic here"}
           </div>
         </Media>
-
         <Card.Body>
           <Row>
             <Col>
@@ -142,7 +139,7 @@ const Post = (props) => {
           </Row>
           <Row className={styles.PostBar}>
             <Col className="text-center">
-              <Form>
+            <Form>
                 {postStatusChoices.map((choice) => (
                   <Form.Check
                     key={choice.value}
