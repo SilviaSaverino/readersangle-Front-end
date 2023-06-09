@@ -8,25 +8,54 @@ import SignInForm from "./pages/auth/SignInForm";
 import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
 import PostsPage from "./pages/posts/PostsPage";
-
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
-  return (
-        <div className={styles.App}>
-          <NavBar />
-          <Container className={styles.Main}>
-            <Switch>
-              <Route exact path="/" render={() => <PostsPage message="No results found! Adjust your search keyword."/>} />
-              <Route exact path="/signin" render={() => <SignInForm />} />
-              <Route exact path="/signup" render={() => <SignUpForm />} />
-              <Route exact path="/posts/create" render={() => <PostCreateForm />} />
-              <Route exact path="/posts/:id" render={() => <PostPage />} />
-              
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
+  const post_id = currentUser?.post_id || "";
 
-              <Route render={() => <p>Page not found!</p>} />
-            </Switch>
-          </Container>
-        </div> 
+  return (
+    <div className={styles.App}>
+      <NavBar />
+      <Container className={styles.Main}>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <PostsPage message="No results found! Adjust your search keyword." />
+            )}
+          />
+          <Route
+            exact
+            path="/poststatus"
+            render={() => (
+              <PostsPage
+                message="No results found! Adjust your search keyword or mark a post as 'Read' or 'Will read'."
+                filter={`owner__poststatus__owner__post=${post_id}&ordering=created_at&`}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/liked"
+            render={() => (
+              <PostsPage
+                message="No results found! Adjust your search keyword or like a post."
+                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+              />
+            )}
+          />
+          <Route exact path="/signin" render={() => <SignInForm />} />
+          <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route exact path="/posts/create" render={() => <PostCreateForm />} />
+          <Route exact path="/posts/:id" render={() => <PostPage />} />
+
+          <Route render={() => <p>Page not found!</p>} />
+        </Switch>
+      </Container>
+    </div>
   );
 }
 

@@ -59,7 +59,7 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/bookposts"
+        to="/poststatus"
       >
         <i class="fa-solid fa-book-open"></i>Books
       </NavLink>
