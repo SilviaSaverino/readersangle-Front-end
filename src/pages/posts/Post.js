@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   Card,
   Media,
@@ -61,7 +61,6 @@ const Post = (props) => {
     }
   };
 
-
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
@@ -107,11 +106,11 @@ const Post = (props) => {
             {is_owner && postPage && "logic here"}
           </div>
         </Media>
-        <Card.Body>
+        <Card.Body className={styles.Fit}>
           <Row>
             <Col>
               {author && (
-                <Card.Title className="text-center">{author}</Card.Title>
+                <Card.Title className="text-center"><strong>{author}</strong></Card.Title>
               )}
               {genre_filter && (
                 <Card.Subtitle className="text-center">
@@ -121,14 +120,14 @@ const Post = (props) => {
             </Col>
             <Col>
               {title && (
-                <Card.Title className="text-center">{title}</Card.Title>
+                <Card.Title className="text-center"><strong>{title}</strong></Card.Title>
               )}
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col md-3>
               <Link to={`/posts/${id}`}>
-                <Card.Img src={image} alt={title} />
+                <Card.Img className={styles.Image} src={image} alt={title} />
               </Link>
             </Col>
             <Col>
@@ -139,9 +138,10 @@ const Post = (props) => {
           </Row>
           <Row className={styles.PostBar}>
             <Col className="text-center">
-            <Form>
+              <Form>
                 {postStatusChoices.map((choice) => (
                   <Form.Check
+                    inline
                     key={choice.value}
                     type="radio"
                     id={`status-${choice.value}-${id}`}
