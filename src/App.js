@@ -33,7 +33,7 @@ function App() {
             render={() => (
               <PostsPage
                 message="No results found! Adjust your search keyword or mark a post as 'Read' or 'Will read'."
-                filter={`owner__poststatus__owner__post=${post_id}&ordering=created_at&`}
+                filter={`poststatus__owner__post=${post_id}&ordering=created_at&`}
               />
             )}
           />
