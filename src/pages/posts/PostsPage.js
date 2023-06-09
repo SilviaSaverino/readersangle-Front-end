@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
 
-function PostsPage() {
+function PostsPage({message, filter = ""}) {
   
   return (
     <Row className="h-100">
