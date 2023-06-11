@@ -32,6 +32,8 @@ const Post = (props) => {
     postPage,
     setPosts,
   } = props;
+  
+  
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
@@ -114,7 +116,7 @@ const Post = (props) => {
               )}
               {genre_filter && (
                 <Card.Subtitle className="text-center">
-                  {genre_filter}
+                  Genre: {genre_filter}
                 </Card.Subtitle>
               )}
             </Col>

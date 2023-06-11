@@ -20,7 +20,7 @@ function PostCreateForm() {
   const [postData, setPostData] = useState({
     title: "",
     author: "",
-    genre: "",
+    genre_filter: "",
     content: "",
     image: "",
   });
@@ -38,7 +38,7 @@ function PostCreateForm() {
     { value: "cookbooks", label: "Cookbooks" },
   ];
 
-  const { title, author, genre, content, image } = postData;
+  const { title, author, genre_filter, content, image } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -66,7 +66,7 @@ function PostCreateForm() {
 
     formData.append("title", title);
     formData.append("author", author);
-    formData.append("genre_filter", genre);
+    formData.append("genre_filter", genre_filter);
     formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
 
@@ -115,15 +115,15 @@ function PostCreateForm() {
         <Form.Label>Genre:</Form.Label>
         <Form.Control
           as="select"
-          name="genre"
-          value={genre}
+          name="genre_filter"
+          value={genre_filter}
           onChange={handleChange}
-        >
-          {genreChoices.map((genre) => (
+        >  
+         {genreChoices.map((genre) => (
             <option key={genre.value} value={genre.value}>
               {genre.label}
             </option>
-          ))}
+          ))} 
         </Form.Control>
       </Form.Group>
       {errors.genre?.map((message, idx) => (
@@ -206,10 +206,10 @@ function PostCreateForm() {
               />
             </Form.Group>
             {errors.image?.map((message, idx) => (
-        <Alert variant="warning" key={idx} className="text-center">
-          {message}
-        </Alert>
-      ))}
+              <Alert variant="warning" key={idx} className="text-center">
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
