@@ -19,6 +19,7 @@ function PostPage() {
             const [{data: post}] = await Promise.all([
                 axiosReq.get(`/posts/${id}`),
                 // axios.get(`/reviews/?post=${id}`),
+                axiosReq.get(`poststatus/?post=${id}/?profile=${id}`),
             ])
             setPost({results: [post] })
             console.log(post)
