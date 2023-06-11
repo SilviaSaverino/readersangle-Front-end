@@ -32,8 +32,6 @@ const Post = (props) => {
     postPage,
     setPosts,
   } = props;
-  
-  
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
@@ -103,7 +101,7 @@ const Post = (props) => {
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
-          <div className="d-flex align_item-center">
+          <div className="d-flex align_items-center">
             <span>{updated_at}</span>
             {is_owner && postPage && "logic here"}
           </div>
@@ -112,7 +110,9 @@ const Post = (props) => {
           <Row>
             <Col>
               {author && (
-                <Card.Title className="text-center"><strong>{author}</strong></Card.Title>
+                <Card.Title className="text-center">
+                  <strong>{author}</strong>
+                </Card.Title>
               )}
               {genre_filter && (
                 <Card.Subtitle className="text-center">
@@ -122,7 +122,9 @@ const Post = (props) => {
             </Col>
             <Col>
               {title && (
-                <Card.Title className="text-center"><strong>{title}</strong></Card.Title>
+                <Card.Title className="text-center">
+                  <strong>{title}</strong>
+                </Card.Title>
               )}
             </Col>
           </Row>
@@ -140,6 +142,7 @@ const Post = (props) => {
           </Row>
           <Row className={styles.PostBar}>
             <Col className="text-center">
+              Have you read this book?
               <Form>
                 {postStatusChoices.map((choice) => (
                   <Form.Check
@@ -156,6 +159,8 @@ const Post = (props) => {
                 ))}
               </Form>
             </Col>
+          </Row>
+          <Row className={styles.PostBar}>
             <Col className="text-center">
               <div>
                 {is_owner ? (

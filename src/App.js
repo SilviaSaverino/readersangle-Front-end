@@ -13,7 +13,7 @@ import { useCurrentUser } from "./contexts/CurrentUserContext";
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
-  const post_id = currentUser?.post_id || "";
+//   const post_id = currentUser?.post_id || "";
 
   return (
     <div className={styles.App}>
@@ -27,7 +27,7 @@ function App() {
               <PostsPage message="No results found! Adjust your search keyword." />
             )}
           />
-          <Route
+          {/* <Route
             exact
             path="/poststatus"
             render={() => (
@@ -36,7 +36,7 @@ function App() {
                 filter={`poststatus__owner__post=${post_id}&ordering=created_at&`}
               />
             )}
-          />
+          /> */}
           <Route
             exact
             path="/liked"
