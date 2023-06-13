@@ -4,14 +4,13 @@
   border-radius: 2px;
   margin-bottom: 16px;
   text-align: center;
-  width: 75vw;
-  
+  width: 100%; 
 }
 
-/* .Fit {
-    max-height: 500px;
+.Fit {
+    max-height: 50vh;
     overflow: scroll;
-}  */
+} 
 
 .Image {
     max-height: 50vh;

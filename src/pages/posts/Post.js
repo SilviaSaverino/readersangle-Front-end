@@ -127,7 +127,7 @@ const Post = (props) => {
             {is_owner && postPage && "logic here"}
           </div>
         </Media>
-        <Card.Body className={styles.Fit}>
+        <Card.Body>
           <Row>
             <Col>
               {author && (
@@ -157,7 +157,7 @@ const Post = (props) => {
             </Col>
             <Col>
               {content && (
-                <Card.Text className="text-center">{content}</Card.Text>
+                <Card.Text className={styles.Fit}>{content}</Card.Text>
               )}
             </Col>
           </Row>
