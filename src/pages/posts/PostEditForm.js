@@ -1,3 +1,19 @@
+// import React, { useEffect, useRef, useState } from "react";
+
+// import Form from "react-bootstrap/Form";
+// import Button from "react-bootstrap/Button";
+// import Row from "react-bootstrap/Row";
+// import Col from "react-bootstrap/Col";
+// import Container from "react-bootstrap/Container";
+
+// import Upload from "../../assets/upload.png";
+// import Asset from "../../components/Asset.js";
+// import styles from "../../styles/PostCreateEditForm.module.css";
+// import appStyles from "../../App.module.css";
+// import btnStyles from "../../styles/Button.module.css";
+// import { Alert, Image } from "react-bootstrap";
+// import { useHistory, useParams } from "react-router";
+// import { axiosReq } from "../../api/axiosDefaults";
 import React, { useEffect, useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
@@ -5,15 +21,17 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
+import Image from "react-bootstrap/Image";
 
-import Upload from "../../assets/upload.png";
-import Asset from "../../components/Asset.js";
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import { Alert, Image } from "react-bootstrap";
-import { useHistory, useParams } from "react-router-dom";
+
+import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import Upload from "../../assets/upload.png";
+import Asset from "../../components/Asset.js";
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});
@@ -46,14 +64,14 @@ function PostEditForm() {
 
   useEffect(() => {
     const handleMount = async () => {
-        try {
-            const { data } = await axiosReq.get(`/posts/${id}/`);
-            const {title, author, genre_filter, content, image, is_owner} = data;
+      try {
+        const { data } = await axiosReq.get(`/posts/${id}/`);
+        const { title, content, image, is_owner } = data;
 
-            is_owner ? setPostData({title, author, genre_filter, content, image}) : history.push("/");
-        } catch(err) {
-            console.log(err)
-        }
+        is_owner ? setPostData({ title, content, image }) : history.push("/");
+      } catch (err) {
+        console.log(err);
+      }
     };
 
     handleMount();
@@ -67,30 +85,29 @@ function PostEditForm() {
   };
 
   const handleChangeImage = (event) => {
-    URL.revokeObjectURL(image);
     if (event.target.files.length) {
+      URL.revokeObjectURL(image);
       setPostData({
         ...postData,
         image: URL.createObjectURL(event.target.files[0]),
       });
     }
   };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
     formData.append("title", title);
+    formData.append("content", content);
     formData.append("author", author);
     formData.append("genre_filter", genre_filter);
-    formData.append("content", content);
 
-    if (imageInput?.current?.files[0]){
-        formData.append("image", imageInput.current.files[0]);
+    if (imageInput?.current?.files[0]) {
+      formData.append("image", imageInput.current.files[0]);
     }
 
     try {
-      await axiosReq.put(`/posts/${id}`, formData);
+      await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
     } catch (err) {
       console.log(err);
@@ -137,12 +154,12 @@ function PostEditForm() {
           name="genre_filter"
           value={genre_filter}
           onChange={handleChange}
-        >  
-         {genreChoices.map((genre) => (
+        >
+          {genreChoices.map((genre) => (
             <option key={genre.value} value={genre.value}>
               {genre.label}
             </option>
-          ))} 
+          ))}
         </Form.Control>
       </Form.Group>
       {errors.genre?.map((message, idx) => (
