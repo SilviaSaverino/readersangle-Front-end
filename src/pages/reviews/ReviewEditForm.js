@@ -52,17 +52,17 @@ function ReviewEditForm(props) {
       <div className="text-right">
         <button
           className={styles.Button}
-          onClick={() => setShowEditForm(false)}
-          type="button"
-        >
-          cancel
-        </button>
-        <button
-          className={styles.Button}
           disabled={!content.trim()}
           type="submit"
         >
-          save
+          Save
+        </button>
+        <button
+          className={styles.Button}
+          onClick={() => setShowEditForm(false)}
+          type="button"
+        >
+          Cancel
         </button>
       </div>
     </Form>

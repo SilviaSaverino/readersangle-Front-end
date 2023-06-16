@@ -167,7 +167,7 @@ function PostEditForm() {
       ))}
 
       <Button className={`${btnStyles.Button} ${btnStyles.Dull}`} type="submit">
-        Create
+        Save
       </Button>
       <Button
         className={`${btnStyles.Button} ${btnStyles.Dull}`}
