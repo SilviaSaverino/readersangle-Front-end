@@ -61,7 +61,9 @@ function PostPage() {
           ) : null}
           {filteredReviews.length ? (
             filteredReviews.map((review) => (
-              <Review key={review.id} {...review} />
+              <Review key={review.id} {...review} 
+              setPost={setPost}
+              setReviews={setReviews} />
             ))
           ) : currentUser ? (
             <span>No reviews yet, be the first to write one!</span>
