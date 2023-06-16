@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 import ReviewCreateForm from "../reviews/ReviewCreateForm";
+import Review from "../reviews/Review";
 
 function PostPage() {
   const { id } = useParams();
@@ -60,9 +61,7 @@ function PostPage() {
           ) : null}
           {filteredReviews.length ? (
             filteredReviews.map((review) => (
-              <p key={review.id}>
-                {review.owner}: {review.content}
-              </p>
+              <Review key={review.id} {...review} />
             ))
           ) : currentUser ? (
             <span>No reviews yet, be the first to write one!</span>
