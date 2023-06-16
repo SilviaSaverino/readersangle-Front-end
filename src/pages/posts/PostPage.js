@@ -21,12 +21,13 @@ function PostPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: post }] = await Promise.all([
+        const [{ data: post }, { data: reviews }] = await Promise.all([
           axiosReq.get(`/posts/${id}`),
-          // axios.get(`/reviews/?post=${id}`),
-          axiosReq.get(`poststatus/?post=${id}&?profile=${id}`),
+          axiosReq.get(`/reviews/?post=${id}`),
+          //   axiosReq.get(`poststatus/?post=${id}&?profile=${id}`),
         ]);
         setPost({ results: [post] });
+        setReviews(reviews);
         console.log(post);
       } catch (err) {
         console.log(err);
@@ -35,6 +36,10 @@ function PostPage() {
 
     handleMount();
   }, [id]);
+
+  const filteredReviews = reviews.results.filter(
+    (review) => review.post.toString() === id
+  );
 
   return (
     <Row className="h-100">
@@ -50,9 +55,20 @@ function PostPage() {
               setPost={setPost}
               setReviews={setReviews}
             />
-          ) : reviews.results.length ? (
+          ) : filteredReviews.length ? (
             "Comments/Reviews"
           ) : null}
+          {filteredReviews.length ? (
+            filteredReviews.map((review) => (
+              <p key={review.id}>
+                {review.owner}: {review.content}
+              </p>
+            ))
+          ) : currentUser ? (
+            <span>No reviews yet, be the first to write one!</span>
+          ) : (
+            <span>No reviews yet. Log in to leave one</span>
+          )}
         </Container>
       </Col>
     </Row>
