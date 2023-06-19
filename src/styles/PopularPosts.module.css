@@ -1,0 +1,35 @@
+.PopularPostsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.PostItem {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.Image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+.PostInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.Title {
+  margin-bottom: 0.5rem;
+}
+
+.Icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+h5 {
+    background-color: #fcf8ed;
+    text-align: center;
+}
