@@ -11,6 +11,10 @@ import Post from "./Post";
 import ReviewCreateForm from "../reviews/ReviewCreateForm";
 import Review from "../reviews/Review";
 
+import InfiniteScroll from "react-infinite-scroll-component";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
+
 function PostPage() {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
@@ -60,11 +64,19 @@ function PostPage() {
             "Comments/Reviews"
           ) : null}
           {filteredReviews.length ? (
-            filteredReviews.map((review) => (
-              <Review key={review.id} {...review} 
-              setPost={setPost}
-              setReviews={setReviews} />
-            ))
+            <InfiniteScroll
+            children={
+                filteredReviews.map((review) => (
+                    <Review key={review.id} {...review} 
+                    setPost={setPost}
+                    setReviews={setReviews} />
+                  ))
+            }
+            dataLength={reviews.results.length}
+            loader={<Asset spinner />}
+            hasMore={!!reviews.next}
+            next={() => fetchMoreData(reviews, setReviews)}
+            />            
           ) : currentUser ? (
             <span>No reviews yet, be the first to write one!</span>
           ) : (

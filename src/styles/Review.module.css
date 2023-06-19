@@ -8,3 +8,15 @@
   font-weight: lighter;
   color: #c1c1c5;
 }
+
+.Heart {
+  color: #ff9254;
+}
+
+.Heart:hover {
+  color: #ffad01;
+}
+
+.HeartOutline:hover {
+  color: #ff9254;
+}
