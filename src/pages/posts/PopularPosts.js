@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/PopularPosts.module.css";
 import appStyles from "../../App.module.css";
 import Post from "./Post";
 
-const PopularPosts = () => {
+const PopularPosts = ({ mobile }) => {
   const [popularPosts, setPopularPosts] = useState([]);
 
   useEffect(() => {
@@ -26,35 +26,61 @@ const PopularPosts = () => {
   };
 
   return (
-    <Container className={`${appStyles.Content}`}>
+    <Container
+      className={`${appStyles.Content} ${
+        mobile && "d-lg-none text-center mb-3"
+      }`}
+    >
       <h5>Popular Posts</h5>
       <hr />
-      <Row className={styles.PopularPostsList}>
-        {popularPosts.map((post) => (
-          <Col key={post.id} className={styles.PostItem}>
-            <Link to={`/posts/${post.id}`}>
-              <img
-                src={post.image}
-                alt={post.title}
-                className={styles.Image}
-              />
-            </Link>
-            <div className={styles.PostInfo}>
-              <h4 className={styles.Title}>
-                <strong>{post.title}</strong>
-              </h4>
-              <div className={styles.Icons}>
-                <div>
-                  <i className="far fa-heart" /> {post.likes_count}
+      {mobile ? (
+        <Carousel interval={2500}>
+          {popularPosts.slice(0, 10).map((post) => (
+            <Carousel.Item key={post.id}>
+              <Link to={`/posts/${post.id}`}>
+                <div className={styles.CarouselItem}>
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className={styles.Image}
+                  />
+                  <div>
+                    <i className="far fa-heart" /> {post.likes_count}
+                    <i className="far fa-comments" /> {post.review_count}
+                  </div>
                 </div>
-                <div>
-                  <i className="far fa-comments" /> {post.review_count}
+              </Link>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      ) : (
+        <div className={styles.PopularPostsList}>
+          {popularPosts.map((post) => (
+            <div key={post.id} className={styles.PostItem}>
+              <Link to={`/posts/${post.id}`}>
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className={styles.Image}
+                />
+              </Link>
+              <div className={styles.PostInfo}>
+                <h4 className={styles.Title}>
+                  <strong>{post.title}</strong>
+                </h4>
+                <div className={styles.Icons}>
+                  <div>
+                    <i className="far fa-heart" /> {post.likes_count}
+                  </div>
+                  <div>
+                    <i className="far fa-comments" /> {post.review_count}
+                  </div>
                 </div>
               </div>
             </div>
-          </Col>
-        ))}
-      </Row>
+          ))}
+        </div>
+      )}
     </Container>
   );
 };
