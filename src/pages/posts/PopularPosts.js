@@ -36,7 +36,7 @@ const PopularPosts = ({ mobile }) => {
         <Carousel
           interval={2500}
         >
-          {popularPosts.slice(0, 10).map((post) => (
+          {popularPosts.slice(0, 5).map((post) => (
             <Carousel.Item key={post.id}>
               <Link to={`/posts/${post.id}`}>
                 <div className={styles.CarouselItem}>
@@ -56,7 +56,7 @@ const PopularPosts = ({ mobile }) => {
         </Carousel>
       ) : (
         <div className={styles.PopularPostsList}>
-          {popularPosts.map((post) => (
+          {popularPosts.slice(0, 5).map((post) => (
             <div key={post.id} className={styles.PostItem}>
               <Link to={`/posts/${post.id}`}>
                 <img
