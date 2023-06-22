@@ -1,36 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
-import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
-// import styles from "../../styles/Profile.module.css";
 import Asset from "../../components/Asset";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useProfileData } from "../../contexts/ProfileDataContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 
 const ProfileList = ({ mobile }) => {
-  const [profileData, setProfileData] = useState({
-    pageProfile: { results: [] },
-  });
-
+  const profileData = useProfileData();
   const { pageProfile } = profileData;
-  const currentUser = useCurrentUser();
-
-  useEffect(() => {
-    const handleMount = async () => {
-      try {
-        const { data } = await axiosReq.get("/profiles/");
-        setProfileData((prevState) => ({
-          ...prevState,
-          pageProfile: data,
-        }));
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    handleMount();
-  }, [currentUser]);
 
   return (
     <Container
@@ -38,7 +16,7 @@ const ProfileList = ({ mobile }) => {
         mobile && "d-lg-none text-center mb-3"
       }`}
     >
-      {pageProfile.results.length ? (
+      {pageProfile.results && pageProfile.results.length ? (
         <>
           <h5>Users profiles</h5>
           <hr />
