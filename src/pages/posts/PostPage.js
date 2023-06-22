@@ -14,7 +14,7 @@ import Review from "../reviews/Review";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
-import PopularPosts from "./PopularPosts";
+// import PopularPosts from "./PopularPosts";
 
 function PostPage() {
   const { id } = useParams();

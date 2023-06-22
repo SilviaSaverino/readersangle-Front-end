@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/PopularPosts.module.css";
 import appStyles from "../../App.module.css";
-import Post from "./Post";
 
 const PopularPosts = ({ mobile }) => {
   const [popularPosts, setPopularPosts] = useState([]);
@@ -34,7 +33,9 @@ const PopularPosts = ({ mobile }) => {
       <h5>Popular Posts</h5>
       <hr />
       {mobile ? (
-        <Carousel interval={2500}>
+        <Carousel
+          interval={2500}
+        >
           {popularPosts.slice(0, 10).map((post) => (
             <Carousel.Item key={post.id}>
               <Link to={`/posts/${post.id}`}>
