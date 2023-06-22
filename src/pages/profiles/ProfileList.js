@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
-import styles from "../../styles/Profile.module.css";
+// import styles from "../../styles/Profile.module.css";
 import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 
-const Profile = ({ mobile }) => {
+const ProfileList = ({ mobile }) => {
   const [profileData, setProfileData] = useState({
     pageProfile: { results: [] },
   });
@@ -46,7 +46,7 @@ const Profile = ({ mobile }) => {
             <Carousel interval={2500} itemsPerSlide={4}>
               {pageProfile.results.slice(0, 4).map((profile) => (
                 <Carousel.Item key={profile.id}>
-                  <Row className={styles.Profiles}>
+                  <Row>
                     <Col>
                       <Link to={`/profiles/${profile.id}/`}>
                         <Avatar src={profile.image} height={55} />
@@ -59,13 +59,13 @@ const Profile = ({ mobile }) => {
                         {profile.created_at}
                       </p>
                     </Col>
-        </Row>
+                  </Row>
                 </Carousel.Item>
               ))}
             </Carousel>
           ) : (
             pageProfile.results.map((profile) => (
-              <Row className={styles.Profiles} key={profile.id}>
+              <Row key={profile.id}>
                 <Col>
                   <Link to={`/profiles/${profile.id}/`}>
                     <Avatar src={profile.image} height={55} />
@@ -91,4 +91,4 @@ const Profile = ({ mobile }) => {
   );
 };
 
-export default Profile;
+export default ProfileList;
