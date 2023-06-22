@@ -6,6 +6,7 @@ import styles from "../../styles/Profile.module.css";
 import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
+import Avatar from "../../components/Avatar";
 
 const Profile = () => {
   const [profileData, setProfileData] = useState({
@@ -35,22 +36,22 @@ const Profile = () => {
     <Container className={appStyles.Content}>
       {pageProfile.results.length ? (
         <>
-          <h5>Most active profiles.</h5>
+          <h5>Users profiles</h5>
           <hr />
           {pageProfile.results.map((profile) => (
-            <Row key={profile.id}>
+            <Row className={styles.Profiles} key={profile.id}>
               <Col>
                 <Link to={`/profiles/${profile.id}/`}>
-                  <img
-                    className={styles.smaller}
-                    src={profile.image}
-                    alt={profile.owner}
-                  />
+                  <Avatar src={profile.image} height={55} />
                 </Link>
               </Col>
               <Col>
                 <p>
-                  {profile.owner} {profile.created_at}
+                  <strong>{profile.owner}</strong>
+                  <br />
+                  Created on:
+                  <br/>
+                  {profile.created_at}
                 </p>
               </Col>
             </Row>
