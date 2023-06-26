@@ -19,6 +19,10 @@ import {
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
 import { Image } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Post from "../posts/Post";
+import { fetchMoreData } from "../../utils/utils";
+import NoResults from "../../assets/no-results.png";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -27,17 +31,22 @@ function ProfilePage() {
   const setProfileData = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
+  const [profilePosts, setProfilePosts] = useState(
+    { results: [] },
+    )
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }] = await Promise.all([
+        const [{ data: pageProfile }, {data: profilePosts}] = await Promise.all([
           axiosReq.get(`/profiles/${id}/`),
+          axiosReq.get(`/posts/?owner__profile=${id}`),
         ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
+        setProfilePosts(profilePosts);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -57,22 +66,22 @@ function ProfilePage() {
           />
         </Col>
         <Col lg={6}>
-          <h3 className="m-2">{profile?.owner}</h3>
+          <h5 className="m-2">{profile?.owner}</h5>
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
-              <div>Posts</div>
+              <div>Posts:</div>
               <div>{profile?.posts_count}</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>Reviews</div>
+              <div>Reviews:</div>
               <div>{profile?.reviews_count}</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>Has read</div>
+              <div>Has read:</div>
               <div>{profile?.read_posts_count}</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>To read</div>
+              <div>To read:</div>
               <div>{profile?.will_read_posts_count}</div>
             </Col>
           </Row>
@@ -89,7 +98,9 @@ function ProfilePage() {
             {profile.updated_at}
           </p>
         </Col>
-        <Col className="p-3">Profile bio</Col>
+        <Col className="p-3">
+          <h5>Profile bio</h5>
+        </Col>
       </Row>
     </>
   );
@@ -97,15 +108,31 @@ function ProfilePage() {
   const mainProfilePosts = (
     <>
       <hr />
-      <p className="text-center">Profile owner's posts</p>
+      <h5 className="text-center">Profile owner's posts</h5>
       <hr />
+      {profilePosts.results.length ? (
+        <InfiniteScroll
+          children={profilePosts.results.map((post) => (
+            <Post key={post.id} {...post} setPosts={setProfilePosts} />
+          ))}
+          dataLength={profilePosts.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profilePosts.next}
+          next={() => fetchMoreData(profilePosts, setProfilePosts)}
+        />
+      ) : (
+        <Asset
+          src={NoResults}
+          message={`No results found, ${profile?.owner} hasn't posted yet.`}
+        />
+      )}
     </>
   );
 
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <ProfileList mobile/>
+        <ProfileList mobile />
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
