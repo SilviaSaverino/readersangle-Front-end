@@ -108,7 +108,7 @@ function ProfilePage() {
   const mainProfilePosts = (
     <>
       <hr />
-      <h5 className="text-center">Profile owner's posts</h5>
+      <h5 className="text-center">{profile?.owner}'s posts</h5>
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
