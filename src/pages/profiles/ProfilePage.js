@@ -32,17 +32,16 @@ function ProfilePage() {
   const setProfileData = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
-  const [profilePosts, setProfilePosts] = useState(
-    { results: [] },
-    )
+  const [profilePosts, setProfilePosts] = useState({ results: [] });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }, {data: profilePosts}] = await Promise.all([
-          axiosReq.get(`/profiles/${id}/`),
-          axiosReq.get(`/posts/?owner__profile=${id}`),
-        ]);
+        const [{ data: pageProfile }, { data: profilePosts }] =
+          await Promise.all([
+            axiosReq.get(`/profiles/${id}/`),
+            axiosReq.get(`/posts/?owner__profile=${id}`),
+          ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
@@ -58,7 +57,6 @@ function ProfilePage() {
 
   const mainProfile = (
     <>
-    {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
@@ -68,7 +66,11 @@ function ProfilePage() {
           />
         </Col>
         <Col lg={6}>
-          <h5 className="m-2">{profile?.owner}</h5>
+          <Row>
+            <h5 className="m-2">{profile?.owner}</h5>
+            {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+          </Row>
+
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
               <div>Posts:</div>
@@ -102,6 +104,7 @@ function ProfilePage() {
         </Col>
         <Col className="p-3">
           <h5>Profile bio</h5>
+          {profile.bio}
         </Col>
       </Row>
     </>
