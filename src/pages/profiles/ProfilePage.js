@@ -66,7 +66,7 @@ function ProfilePage() {
           />
         </Col>
         <Col lg={6}>
-          <Row>
+          <Row className="text-center justify-content-center align-items-center">
             <h5 className="m-2">{profile?.owner}</h5>
             {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
           </Row>
@@ -103,6 +103,7 @@ function ProfilePage() {
           </p>
         </Col>
         <Col className="p-3">
+          <hr />
           <h5>Profile bio</h5>
           {profile.bio}
         </Col>
@@ -114,7 +115,7 @@ function ProfilePage() {
     <>
       <hr />
       <h5 className="text-center">{profile?.owner}'s posts</h5>
-      <hr />
+      <br />
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results.map((post) => (
