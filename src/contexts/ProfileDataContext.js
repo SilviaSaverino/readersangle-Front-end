@@ -10,6 +10,7 @@ export const useSetProfileData = () => useContext(SetProfileDataContext);
 
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
+    profileList: [],
     pageProfile: { results: [] },
   });
 
@@ -21,6 +22,7 @@ export const ProfileDataProvider = ({ children }) => {
         const { data } = await axiosReq.get("/profiles/");
         setProfileData((prevState) => ({
           ...prevState,
+          profileList: data,
           pageProfile: data,
         }));
       } catch (err) {

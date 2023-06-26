@@ -78,7 +78,16 @@ function ProfilePage() {
           </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
-          <p>Created on/ updated_on</p>
+          <p>
+            Created on:
+            <br />
+            {profile.created_at}
+          </p>
+          <p>
+            Last update:
+            <br />
+            {profile.updated_at}
+          </p>
         </Col>
         <Col className="p-3">Profile bio</Col>
       </Row>
@@ -96,7 +105,7 @@ function ProfilePage() {
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <ProfileList mobile />
+        <ProfileList mobile/>
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>

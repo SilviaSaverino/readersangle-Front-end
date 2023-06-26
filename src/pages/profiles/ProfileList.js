@@ -8,7 +8,7 @@ import Avatar from "../../components/Avatar";
 
 const ProfileList = ({ mobile }) => {
   const profileData = useProfileData();
-  const { pageProfile } = profileData;
+  const { profileList } = profileData;
 
   return (
     <Container
@@ -16,13 +16,13 @@ const ProfileList = ({ mobile }) => {
         mobile && "d-lg-none text-center mb-3"
       }`}
     >
-      {pageProfile.results && pageProfile.results.length ? (
+      {profileList.results && profileList.results.length ? (
         <>
           <h5>Users profiles</h5>
           <hr />
           {mobile ? (
             <Carousel interval={2500} itemsPerSlide={4}>
-              {pageProfile.results.slice(0, 4).map((profile) => (
+              {profileList.results.slice(0, 4).map((profile) => (
                 <Carousel.Item key={profile.id}>
                   <Row>
                     <Col>
@@ -42,7 +42,7 @@ const ProfileList = ({ mobile }) => {
               ))}
             </Carousel>
           ) : (
-            pageProfile.results.map((profile) => (
+            profileList.results.map((profile) => (
               <Row key={profile.id}>
                 <Col>
                   <Link to={`/profiles/${profile.id}/`}>
