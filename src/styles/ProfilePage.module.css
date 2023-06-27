@@ -1,3 +1,8 @@
+.Bio {
+    height: 20vh; 
+    overflow: scroll; 
+}
+
 .ProfileImage {
     object-fit: cover;
     height: 120px;

@@ -8,7 +8,7 @@ import Asset from "../../components/Asset";
 
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
+// import btnStyles from "../../styles/Button.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import ProfileList from "./ProfileList";
@@ -102,7 +102,7 @@ function ProfilePage() {
             {profile.updated_at}
           </p>
         </Col>
-        <Col className="p-3">
+        <Col className={`${styles.Bio} p-3`}>
           <hr />
           <h5>Profile bio</h5>
           {profile.bio}

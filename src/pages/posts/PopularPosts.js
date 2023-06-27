@@ -16,7 +16,7 @@ const PopularPosts = ({ mobile }) => {
     try {
       const { data } = await axiosRes.get("/posts");
       const popularPosts = data.results.filter(
-        (post) => post.likes_count > 5 || post.review_count > 10
+        (post) => post.likes_count > 3 || post.review_count > 3
       );
       setPopularPosts(popularPosts);
     } catch (err) {
