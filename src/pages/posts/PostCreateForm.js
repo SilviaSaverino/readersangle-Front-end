@@ -14,8 +14,10 @@ import btnStyles from "../../styles/Button.module.css";
 import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function PostCreateForm() {
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
   const [postData, setPostData] = useState({
     title: "",
@@ -118,12 +120,12 @@ function PostCreateForm() {
           name="genre_filter"
           value={genre_filter}
           onChange={handleChange}
-        >  
-         {genreChoices.map((genre) => (
+        >
+          {genreChoices.map((genre) => (
             <option key={genre.value} value={genre.value}>
               {genre.label}
             </option>
-          ))} 
+          ))}
         </Form.Control>
       </Form.Group>
       {errors.genre?.map((message, idx) => (
