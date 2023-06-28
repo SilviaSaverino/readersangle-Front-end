@@ -241,6 +241,25 @@ These components play crucial roles in different sections of the project, contri
 
 ## Hooks and custom hooks:
 
+### useClickOutsideToggle:
+The useClickOutsideToggle hook is used to handle toggling a state variable (expanded) based on clicks that occur outside a specified element. It returns an object with the following properties:
+- expanded (boolean): The state variable that tracks the toggle status.
+- setExpanded (function): A function to update the expanded state variable.
+- ref (object): A reference to the specified element.
+
+This hook is utilized to control the toggling behavior of certain components or menus when a click event occurs outside of them. It enhances user interaction by allowing the components to be collapsed or hidden when clicking outside their boundaries.
+
+### useRedirect:
+The useRedirect hook is responsible for redirecting users based on their authentication status. It takes the userAuthStatus as an argument and uses the useHistory hook from react-router for navigation.
+
+This hook is used to redirect users to different routes depending on their authentication status. If the user is logged in (userAuthStatus === "loggedIn"), they are redirected to the home page ("/"), and if they are logged out (userAuthStatus === "loggedOut"), they are also redirected to the home page ("/"). It ensures proper navigation and user experience based on their authentication status.
+
+### useState: 
+The useState hook allows you to add state to functional components. By calling this hook and passing an initial value, it returns an array with two elements: the current state value and a function to update that value. You can use this function to modify the state value, triggering a re-render of the component. This hook is useful for managing and updating dynamic data within your components.
+
+### useEffect: 
+The useEffect hook is used to perform side effects in functional components. It accepts a callback function and an optional array of dependencies. The callback function will be executed after the component has rendered, and it can handle tasks like data fetching, subscriptions, or manually interacting with the DOM. The dependencies array allows you to specify values that the effect depends on. If any of these values change, the effect will re-run. This hook is essential for handling side effects and managing the lifecycle of functional components.
+
 ## Crud functionalities:
 
 ## Frameworks, libraries and dependencies:
