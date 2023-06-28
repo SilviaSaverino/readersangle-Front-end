@@ -239,5 +239,18 @@ The schema and data models are documented in the read me file of Reader's angle 
 ## Deployment:
 
 ## Credits:
+To complete this website, I relied on various external sources for guidance and resources. Here'sa list of some of them and how I utilized them:
+
+  -  Moments Walkthrough Project from Code Institute: I referred to the Moments walkthrough project from Code Institute as a valuable resource. It provided a practical example and guidance on implementing certain features or functionalities that I wanted to incorporate into my website. It helped me understand the concepts and best practices related to building a similar project.
+
+  -  Stack Overflow: Stack Overflow is a popular online community where developers ask questions and receive answers from the programming community. Whenever I encountered a specific issue or bug during the development process, I referred to Stack Overflow to find potential solutions or insights from experienced developers who may have encountered similar problems.
+
+  -  React Documentation: React's official documentation served as a crucial reference for understanding React's core concepts, components, hooks, and other APIs. It provided detailed explanations, examples, and usage guidelines that helped me build React components and implement React-specific functionality effectively.
+
+  -  React Bootstrap Documentation: To leverage the capabilities of React Bootstrap, I referred to the official documentation of React Bootstrap. It provided documentation and examples for utilizing the pre-built React components and styling options provided by React Bootstrap. This documentation helped me understand how to integrate and customize Bootstrap components within my React application.
+
+  -  Pinterest and Amazon Websites: For images related to books and posts on my website, I obtained them from sources like Pinterest and Amazon. These platforms often provide a wide range of visual content related to various topics, including books and products. By using images from these sources, I was able to enhance the visual appeal and content representation on my website.
+
+By utilizing these and other external sources, I could leverage existing knowledge, community support, and resources to develop my website effectively. It allowed me to take advantage of best practices, learn from others' experiences, and incorporate visually appealing content into my project.
 
 ## Acknowledgements:
