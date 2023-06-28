@@ -29,6 +29,19 @@ It was important to me to provide a user experience that feels smooth, natural, 
   - 2. let users follow/unfollow a post so to stay engaged with the post discussion.
 
 ## Agile development:
+I adopted an agile development approach to keep track of my progress effectively. GitHub issues and projects played a crucial role in documenting and organizing the development process.
+
+For each user story, I created a GitHub issue and applied appropriate labels to categorize them. These user stories represented specific features or functionalities that needed to be implemented. To manage the overall backlog, I created a GitHub milestone to gather all the user stories initially.
+
+To ensure a structured development process, I divided my work into iterations, each lasting for around 7 working days. However, the actual duration of each iteration varied as I needed to accommodate my work and other commitments.
+
+To visualize and organize my tasks, I created a separate GitHub project board for each iteration. As I started working on an iteration, I moved the relevant user stories from the product backlog into the project board associated with that specific iteration.
+
+To track my progress effectively, I utilized a project kanban board within GitHub. This board allowed me to visualize the status of each user story. I moved them between columns like 'Todo', 'In Progress', and 'Done' based on their current stage of completion.
+
+By adopting these agile development practices and utilizing GitHub issues, projects, and kanban boards, I could manage my work efficiently. This approach helped me stay organized, prioritize tasks, and ensure timely completion.
+
+
 
 # Sprints, Epics and User Stories:
 
