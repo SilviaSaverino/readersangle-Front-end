@@ -1,5 +1,13 @@
 # Readers's angle:
 
+'Reader's angle' website project had been created as a final portfolio project for Code Institute full stack course.
+
+For the frontend part of the project, I chose to use React to develop a dynamic and engaging user interface. My goal was to provide readers with a seamless and intuitive experience that allows them to explore, engage, and connect with the vibrant literary community.
+
+Using React, I crafted various components that work together harmoniously to create an interactive and visually appealing interface. I wanted readers to feel immersed in the world of books and easily connect with other book enthusiasts. By utilizing React's capabilities, I aimed to deliver a user-friendly interface that makes it effortless for readers to navigate, discover new books, and engage with the content.
+
+It was important to me to provide a user experience that feels smooth, natural, and enjoyable, allowing readers to fully immerse themselves in the website and connect with fellow book lovers.
+
 ## Project Goals:
 
 - Provide an intuitive and user-friendly platform for readers to share their thoughts, opinions, and recommendations on books.
@@ -17,29 +25,39 @@
 - Allow users to explore other users' profiles to discover their book recommendations and connect with like-minded readers.
 
 - Lay a solid foundation for future development, enabling the addition of new features and enhancements to further enhance the reading and community experience on the website. Such as
-    - 1) let users indicate their reading intentions (whether they have read a book or plan to read it). 
-    - 2) let users follow/unfollow a post so to stay engaged with the post discussion.
+  - 1. let users indicate their reading intentions (whether they have read a book or plan to read it).
+  - 2. let users follow/unfollow a post so to stay engaged with the post discussion.
 
 ## User Stories:
 
 ## Agile development:
 
 ## Project Planning:
+
 ### Mockups:
+
 ### Schema:
 
-## Design: 
+## Design:
+
 ### Colours:
-### Fonts: 
+
+### Fonts:
 
 ## Features:
+
 ### Homepage:
+
 ### Sign In/Up Forms:
+
 ### Posts page:
+
 ### Profile page:
+
 ### Liked page:
 
 ## Components:
+
 ### Re-use of compoments:
 
 ## Hooks and custom hooks:
@@ -49,6 +67,7 @@
 ## Frameworks, libraries and dependencies:
 
 ## Testing:
+
 ### Manual testing:
 
 ## Validators:
