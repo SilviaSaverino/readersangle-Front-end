@@ -41,8 +41,6 @@ To track my progress effectively, I utilized a project kanban board within GitHu
 
 By adopting these agile development practices and utilizing GitHub issues, projects, and kanban boards, I could manage my work efficiently. This approach helped me stay organized, prioritize tasks, and ensure timely completion.
 
-
-
 # Sprints, Epics and User Stories:
 
 ## Sprint1 - Navigation & Authentication:
@@ -183,6 +181,7 @@ As a logged-in user, I can update my username and password, allowing me to modif
 ### Mockups:
 
 ### Schema:
+The schema and data models are documented in the read me file of Reader's angle backend [Reader's angle Backend](https://github.com/SilviaSaverino/Reader-s-angle-Back-end)
 
 ## Design:
 
@@ -211,6 +210,23 @@ As a logged-in user, I can update my username and password, allowing me to modif
 ## Crud functionalities:
 
 ## Frameworks, libraries and dependencies:
+  ### axios: 
+  I chose axios to simplify making HTTP requests to my REST API. It offers a simple and consistent API for sending and receiving data from servers, eliminating the need for manual configuration of HTTP headers and handling complex request/response logic. This streamlined approach improves my development efficiency and reduces the likelihood of errors.
+
+  ### jwt-decode: 
+  I included the jwt-decode library to simplify the decoding of JSON Web Tokens (JWT). It provides an easy-to-use interface for extracting information from JWTs, such as the user's identity and any additional claims encoded within the token. By using this library, I can easily access the necessary information stored in JWTs, enabling secure authentication and authorization within my application.
+
+  ### react-bootstrap:
+   I chose the react-bootstrap library to utilize Bootstrap components as React components. It provides a set of pre-built React components that are compatible with Bootstrap's styling and functionality. This library streamlines the process of incorporating Bootstrap components into my React application, allowing me to create responsive and visually appealing user interfaces with minimal effort.
+
+  ### react-dom: 
+  I included React DOM, as it is a fundamental package that enables rendering React components into the browser's DOM. It provides methods for efficiently updating the DOM when React components change. This library is essential for my React application as it facilitates the seamless integration of React components into the browser environment.
+
+  ### react-router-dom: 
+  I chose the react-router-dom library for handling routing in my React application. It enables me to define different routes and associate them with specific components, allowing for the rendering of different views based on the current URL. This library simplifies the navigation and organization of multiple pages or views within a single-page application, enhancing user navigation and the overall user experience.
+
+  ### react-infinite-scroll-component: 
+  I included the react-infinite-scroll-component library to implement infinite scrolling functionality in my React application. It allows me to load and display additional content as the user scrolls down the page, dynamically fetching and rendering data as needed. This improves the user experience by providing a smooth and seamless browsing experience, particularly when dealing with large sets of data or content.
 
 ## Testing:
 
