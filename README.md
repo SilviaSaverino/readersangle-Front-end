@@ -39,7 +39,15 @@ To visualize and organize my tasks, I created a separate GitHub project board fo
 
 To track my progress effectively, I utilized a project kanban board within GitHub. This board allowed me to visualize the status of each user story. I moved them between columns like 'Todo', 'In Progress', and 'Done' based on their current stage of completion.
 
-By adopting these agile development practices and utilizing GitHub issues, projects, and kanban boards, I could manage my work efficiently. This approach helped me stay organized, prioritize tasks, and ensure timely completion.
+By adopting these agile development practices and utilizing GitHub issues, projects, and kanban boards, I could manage my work efficiently. This approach helped me stay organized, prioritize tasks, and ensure timely completion for most of them! Please note that two features were left to implement from the following user stories.
+
+#### Features left to implement:
+- Mark a post: As a logged-in user, I have the ability to mark a post as 'Read' or 'Will read' so that i can keep track of my readings. 
+
+- Follow a post: As a logged-in user, I can follow a post so that i stay enganged with discussion/reviews developments.
+
+Since this functionality were not implemented initially, other user stories such as filtering posts based on the reading status or generating recommendations based on the most followed posts, are still pending. 
+To address this, I have chosen to preserve the original user stories in this documentation for future reference, allowing me to revisit and complete them at a more opportune time. However, I have removed these particular stories from the current project to accurately reflect the progress made and appropriately close the associated milestones.
 
 # Sprints, Epics and User Stories:
 
@@ -88,10 +96,10 @@ As a user, I can access and explore the specific details of an individual post, 
 #### Like a post: 
 As a logged-in user, I have the ability to express my appreciation and support for posts that catch my interest by liking them, indicating my positive response to the content.
 
-#### Mark a post: 
+#### Mark a post: (to be implemented)
 As a logged-in user, I have the ability to mark a post as 'Read' or 'Will read' so that i can keep track of my readings
 
-#### Follow a post: 
+#### Follow a post: (to be implemented)
 As a logged-in user, I can follow a post so that i stay enganged with discussion/reviews development
 
 ## Sprint3 - Posts:
@@ -109,7 +117,7 @@ As a user, I have the capability to search for posts and user profiles using spe
 #### View liked posts: 
 As a logged-in user, I can conveniently access and view the posts that I have liked, allowing me to revisit and enjoy the content that resonates with me the most.
 
-#### View posts marked as Read or Will Read: 
+#### View posts marked as Read or Will Read: (to be implemented)
 As a logged-in user, I can explore and see the posts i've marked as read or will read, ensuring that I stay organized and up-to-date with my reading preferences.
 
 #### Infinite scroll: 
@@ -148,9 +156,6 @@ As the owner of a review, I have the authority to delete my own review. This con
 #### Edit a review: 
 As the owner of a review, I can edit the content of my review. This functionality allows me to modify or update the information within my existing review.
 
-#### Popular post:
-As a logged-in user, I can see the most popular posts so that I can stay engaged with relevant discussion/reviews and see what the community likes the most
-
 ## Sprint5 - User Profile:
 This sprint will focus on the creation of an interface for the user profile,with crud functionalities to allow users to edit their profiles, and with a focus on showing user preferences.
 
@@ -160,7 +165,7 @@ This epic focuses on enhancing the user experience on the Profile page by provid
 #### Profile page: 
 As a user, I can view other users' profiles to see their posts and learn more about them.
 
-#### Most followed post: 
+#### Most followed post: (to be implemented)
 As a user, I can view a list of the most followed posts, providing me with insights into which posts are popular among the community.
 
 #### User profile - user stats: 
