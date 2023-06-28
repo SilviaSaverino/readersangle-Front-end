@@ -201,9 +201,43 @@ The schema and data models are documented in the read me file of Reader's angle 
 
 ### Liked page:
 
-## Components:
+## Components and Re-use of compoments:
 
-### Re-use of compoments:
+### Asset: 
+The Asset component is responsible for rendering an asset, such as an image or a spinner, along with an optional message. It receives the following props:
+- spinner (boolean): If true, a spinner animation is displayed.
+- src (string): The source URL of the image to be displayed.
+- message (string): An optional message to be displayed below the asset.
+
+This component is utilized throughout the project to display various assets, such as images and loading spinners, along with corresponding messages when needed.
+
+### Avatar: 
+The Avatar component is used to display a user's profile avatar. It receives the following props:
+- src (string): The source URL of the avatar image.
+- height (number): The desired height of the avatar image.
+- text (string): Optional text to be displayed next to the avatar image.
+
+In the project, the Avatar component is used to represent user avatars in different sections, such as the navbar and profile pages.
+
+### MoreDropdown:
+The MoreDropdown component is a dropdown menu that provides additional options for user interaction. It receives two callback functions as props:
+- handleEdit: Callback function to handle the edit action.
+- handleDelete: Callback function to handle the delete action.
+
+This component is utilized in sections where additional actions can be performed on items, such as editing or deleting posts.
+
+###  ProfileEditDropdown:
+The ProfileEditDropdown component is a dropdown menu specifically used for profile editing options. It receives the user's profile ID as a prop and utilizes the useHistory hook from react-router for navigation.
+
+This component is used in the profile page to provide editing options for the user's profile, including editing the profile information, changing the username, and changing the password.
+NavBar
+
+### The NavBar component:
+This component represents the navigation bar of the website. It includes the project logo, navigation links, and user-specific icons based on the user's authentication state. It utilizes various components, including Avatar, MoreDropdown, and NavLink from react-router.
+
+The NavBar component is a key part of the website's layout and provides navigation functionality, user authentication options, and a responsive design for different screen sizes.
+
+These components play crucial roles in different sections of the project, contributing to the overall functionality, visual appeal, and user experience of the website.
 
 ## Hooks and custom hooks:
 
