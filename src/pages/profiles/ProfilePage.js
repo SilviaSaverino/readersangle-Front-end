@@ -46,6 +46,7 @@ function ProfilePage() {
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
+        console.log(pageProfile);
         setProfilePosts(profilePosts);
         setHasLoaded(true);
       } catch (err) {
@@ -94,18 +95,18 @@ function ProfilePage() {
           <p>
             Created on:
             <br />
-            {profile.created_at}
+            {profile?.created_at}
           </p>
           <p>
             Last update:
             <br />
-            {profile.updated_at}
+            {profile?.updated_at}
           </p>
         </Col>
         <Col className={`${styles.Bio} p-3`}>
           <hr />
           <h5>Profile bio</h5>
-          {profile.bio}
+          {profile?.bio}
         </Col>
       </Row>
     </>
