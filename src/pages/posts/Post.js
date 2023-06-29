@@ -118,7 +118,7 @@ const Post = (props) => {
             </Col>
           </Row>
           <Row>
-            <Col md-3>
+            <Col>
               <Link to={`/posts/${id}`}>
                 <Card.Img className={styles.Image} src={image} alt={title} />
               </Link>
