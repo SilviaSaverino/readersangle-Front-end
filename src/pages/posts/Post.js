@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Card,
   Media,
-  Form,
   OverlayTrigger,
   Row,
   Col,
@@ -32,42 +31,11 @@ const Post = (props) => {
     updated_at,
     postPage,
     setPosts,
-    status,
-    status_id,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
-
-
-  const postStatusChoices = [
-    { value: "Read", label: "Read" },
-    { value: "Will read", label: "Will Read" },
-  ];
-
-  const [postStatus, setPostStatus] = useState({
-    status: status,
-  });
-
-  const handleStatus = async (newStatus) => {
-    try {
-      const { data } = await axiosRes.post(`/poststatus/`, {
-        id: status_id,
-        status: newStatus,
-      });
-      setPostStatus((prevPosts) => ({
-        ...postStatus,
-        results: prevPosts.results.map((post) => {
-          return post.id === id
-            ? { ...post, status_id: data.id, status: data.status }
-            : post;
-        }),
-      }));
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`)
@@ -159,26 +127,6 @@ const Post = (props) => {
               {content && (
                 <Card.Text className={styles.Fit}>{content}</Card.Text>
               )}
-            </Col>
-          </Row>
-          <Row className={styles.PostBar}>
-            <Col className="text-center">
-              Have you read this book?
-              <Form>
-                {postStatusChoices.map((choice) => (
-                  <Form.Check
-                    inline
-                    key={choice.value}
-                    type="radio"
-                    id={`status-${choice.value}-${id}`}
-                    label={choice.label}
-                    name={`status-${id}`}
-                    value={choice.value}
-                    checked={postStatus.status === choice.value}
-                    onChange={() => handleStatus(choice.value)}
-                  />
-                ))}
-              </Form>
             </Col>
           </Row>
           <Row className={styles.PostBar}>
