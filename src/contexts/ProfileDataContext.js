@@ -20,6 +20,7 @@ export const ProfileDataProvider = ({ children }) => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get("/profiles/");
+        console.log("Fetched profile data:", data);
         setProfileData((prevState) => ({
           ...prevState,
           profileList: data,
@@ -29,6 +30,8 @@ export const ProfileDataProvider = ({ children }) => {
         console.log(err);
       }
     };
+
+    console.log("Current user:", currentUser);
 
     handleMount();
   }, [currentUser]);

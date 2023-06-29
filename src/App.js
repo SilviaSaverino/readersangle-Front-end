@@ -19,7 +19,6 @@ import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
-  //   const post_id = currentUser?.post_id || "";
 
   return (
     <div className={styles.App}>
@@ -33,16 +32,6 @@ function App() {
               <PostsPage message="No results found! Adjust your search keyword." />
             )}
           />
-          {/* <Route
-            exact
-            path="/poststatus"
-            render={() => (
-              <PostsPage
-                message="No results found! Adjust your search keyword or mark a post as 'Read' or 'Will read'."
-                filter={`poststatus__owner__post=${post_id}&ordering=created_at&`}
-              />
-            )}
-          /> */}
           <Route
             exact
             path="/liked"

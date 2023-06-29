@@ -14,7 +14,6 @@ import Review from "../reviews/Review";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
-// import PopularPosts from "./PopularPosts";
 
 function PostPage() {
   const { id } = useParams();
@@ -30,7 +29,6 @@ function PostPage() {
         const [{ data: post }, { data: reviews }] = await Promise.all([
           axiosReq.get(`/posts/${id}`),
           axiosReq.get(`/reviews/?post=${id}`),
-          //   axiosReq.get(`poststatus/?post=${id}&?profile=${id}`),
         ]);
         setPost({ results: [post] });
         setReviews(reviews);
@@ -65,18 +63,19 @@ function PostPage() {
           ) : null}
           {filteredReviews.length ? (
             <InfiniteScroll
-            children={
-                filteredReviews.map((review) => (
-                    <Review key={review.id} {...review} 
-                    setPost={setPost}
-                    setReviews={setReviews} />
-                  ))
-            }
-            dataLength={reviews.results.length}
-            loader={<Asset spinner />}
-            hasMore={!!reviews.next}
-            next={() => fetchMoreData(reviews, setReviews)}
-            />            
+              children={filteredReviews.map((review) => (
+                <Review
+                  key={review.id}
+                  {...review}
+                  setPost={setPost}
+                  setReviews={setReviews}
+                />
+              ))}
+              dataLength={reviews.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!reviews.next}
+              next={() => fetchMoreData(reviews, setReviews)}
+            />
           ) : currentUser ? (
             <span>No reviews yet, be the first to write one!</span>
           ) : (

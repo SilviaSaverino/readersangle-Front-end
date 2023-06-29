@@ -8,9 +8,7 @@ import Asset from "../../components/Asset";
 
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
-// import btnStyles from "../../styles/Button.module.css";
 
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import ProfileList from "./ProfileList";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -27,7 +25,6 @@ import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
-  const currentUser = useCurrentUser();
   const { id } = useParams();
   const setProfileData = useSetProfileData();
   const { pageProfile } = useProfileData();
@@ -42,6 +39,8 @@ function ProfilePage() {
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/posts/?owner__profile=${id}`),
           ]);
+          console.log("Fetched page profile:", pageProfile);
+          console.log("Fetched profile posts:", profilePosts);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },

@@ -46,25 +46,6 @@ const Post = (props) => {
     { value: "Will read", label: "Will Read" },
   ];
 
-  //   const [selectedStatus, setSelectedStatus] = useState(props.post_status);
-
-  //   const handleStatusChoice = async (e) => {
-  //     const status = e.target.value;
-  //     setSelectedStatus(status);
-
-  //     try {
-  //       await axiosRes.patch(`/poststatus/${id}/`, { post_status: status });
-  //       setPosts((prevPosts) => ({
-  //         ...prevPosts,
-  //         results: prevPosts.results.map((post) =>
-  //           post.id === id ? { ...post, post_status: status } : post
-  //         ),
-  //       }));
-  //       console.log("Updated post:", { ...props, post_status: status });
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
   const [postStatus, setPostStatus] = useState({
     status: status,
   });
