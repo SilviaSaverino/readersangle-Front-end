@@ -36,9 +36,7 @@ function ReviewCreateForm(props) {
         ],
       }));
       setContent("");
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (

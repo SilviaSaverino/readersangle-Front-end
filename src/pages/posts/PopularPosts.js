@@ -19,9 +19,7 @@ const PopularPosts = ({ mobile }) => {
         (post) => post.likes_count > 3 || post.review_count > 3
       );
       setPopularPosts(popularPosts);
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (
@@ -33,9 +31,7 @@ const PopularPosts = ({ mobile }) => {
       <h5>Popular Posts</h5>
       <hr />
       {mobile ? (
-        <Carousel
-          interval={2500}
-        >
+        <Carousel interval={2500}>
           {popularPosts.slice(0, 5).map((post) => (
             <Carousel.Item key={post.id}>
               <Link to={`/posts/${post.id}`}>

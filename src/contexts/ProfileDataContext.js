@@ -20,18 +20,13 @@ export const ProfileDataProvider = ({ children }) => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get("/profiles/");
-        console.log("Fetched profile data:", data);
         setProfileData((prevState) => ({
           ...prevState,
           profileList: data,
           pageProfile: data,
         }));
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
-
-    console.log("Current user:", currentUser);
 
     handleMount();
   }, [currentUser]);

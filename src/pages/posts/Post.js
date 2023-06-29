@@ -38,16 +38,14 @@ const Post = (props) => {
   const history = useHistory();
 
   const handleEdit = () => {
-    history.push(`/posts/${id}/edit`)
-  }
+    history.push(`/posts/${id}/edit`);
+  };
 
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
       history.goBack();
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const handleLike = async () => {
@@ -61,9 +59,7 @@ const Post = (props) => {
             : post;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const handleUnlike = async () => {
@@ -77,9 +73,7 @@ const Post = (props) => {
             : post;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (
@@ -92,7 +86,12 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && postPage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete}/>}
+            {is_owner && postPage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
           </div>
         </Media>
         <Card.Body>

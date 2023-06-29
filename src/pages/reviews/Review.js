@@ -48,13 +48,11 @@ const Review = (props) => {
 
   const handleReviewLike = async () => {
     try {
-      const { data } = await axiosRes.post("/reviewlikes/", { review:id });
-      console.log("ID of the review:", id);
-      console.log("ID of the review like:", data.id);
+      const { data } = await axiosRes.post("/reviewlikes/", { review: id });
       setReviews((prevReviews) => ({
         ...prevReviews,
         results: prevReviews.results.map((review) => {
-            return review.id === id
+          return review.id === id
             ? {
                 ...review,
                 reviewlikes_count: review.reviewlikes_count + 1,
@@ -63,9 +61,7 @@ const Review = (props) => {
             : review;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const handleReviewUnlike = async () => {
@@ -83,9 +79,7 @@ const Review = (props) => {
             : review;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (

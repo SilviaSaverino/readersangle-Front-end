@@ -39,11 +39,9 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          console.log("Fetched profile data:", data);
           const { name, bio, image } = data;
           setProfileData({ name, bio, image });
         } catch (err) {
-          console.log(err);
           history.push("/");
         }
       } else {
@@ -69,10 +67,8 @@ const ProfileEditForm = () => {
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
     }
-    console.log("Form data:", formData);
     try {
       const { data } = await axiosReq.put(`/profiles/${id}/`, formData);
-      console.log("Updated profile data:", data);
       setCurrentUser((currentUser) => ({
         ...currentUser,
         owner: data.name,
@@ -80,7 +76,6 @@ const ProfileEditForm = () => {
       }));
       history.goBack();
     } catch (err) {
-      console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -102,7 +97,7 @@ const ProfileEditForm = () => {
           {message}
         </Alert>
       ))}
-      
+
       <Button className={`${btnStyles.Button} ${btnStyles.Dull}`} type="submit">
         Save
       </Button>

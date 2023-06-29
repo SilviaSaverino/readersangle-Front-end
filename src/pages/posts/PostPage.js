@@ -32,10 +32,7 @@ function PostPage() {
         ]);
         setPost({ results: [post] });
         setReviews(reviews);
-        console.log(post);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     handleMount();
@@ -50,7 +47,9 @@ function PostPage() {
       <Col className="py-2 p-0 p-lg-2">
         <Post {...post.results[0]} setPosts={setPost} postPage />
         <Container className={appStyles.Content}>
-        <h5><strong>Comments and Reviews</strong></h5>
+          <h5>
+            <strong>Comments and Reviews</strong>
+          </h5>
           {currentUser ? (
             <ReviewCreateForm
               profile_id={currentUser.profile_id}
