@@ -50,6 +50,7 @@ function PostPage() {
       <Col className="py-2 p-0 p-lg-2">
         <Post {...post.results[0]} setPosts={setPost} postPage />
         <Container className={appStyles.Content}>
+        <h5><strong>Comments and Reviews</strong></h5>
           {currentUser ? (
             <ReviewCreateForm
               profile_id={currentUser.profile_id}
@@ -58,28 +59,26 @@ function PostPage() {
               setPost={setPost}
               setReviews={setReviews}
             />
-          ) : filteredReviews.length ? (
-            "Comments/Reviews"
           ) : null}
-          {filteredReviews.length ? (
-            <InfiniteScroll
-              children={filteredReviews.map((review) => (
-                <Review
-                  key={review.id}
-                  {...review}
-                  setPost={setPost}
-                  setReviews={setReviews}
-                />
-              ))}
-              dataLength={reviews.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!reviews.next}
-              next={() => fetchMoreData(reviews, setReviews)}
-            />
-          ) : currentUser ? (
-            <span>No reviews yet, be the first to write one!</span>
+          {filteredReviews.length > 0 ? (
+            <>
+              <InfiniteScroll
+                children={filteredReviews.map((review) => (
+                  <Review
+                    key={review.id}
+                    {...review}
+                    setPost={setPost}
+                    setReviews={setReviews}
+                  />
+                ))}
+                dataLength={reviews.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!reviews.next}
+                next={() => fetchMoreData(reviews, setReviews)}
+              />
+            </>
           ) : (
-            <span>No reviews yet. Log in to leave one</span>
+            <span>No reviews yet. Be the first to write one!</span>
           )}
         </Container>
       </Col>
