@@ -39,13 +39,10 @@ function ProfilePage() {
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/posts/?owner__profile=${id}`),
           ]);
-          console.log("Fetched page profile:", pageProfile);
-          console.log("Fetched profile posts:", profilePosts);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
-        console.log(pageProfile);
         setProfilePosts(profilePosts);
         setHasLoaded(true);
       } catch (err) {
