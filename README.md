@@ -293,6 +293,11 @@ The useEffect hook is used to perform side effects in functional components. It 
 ## Validators:
 
 ## Bugs and fixes:
+An unresolved issue remains unresolved because even the tutors were uncertain about the cause of the issue.
+
+The problem involves the profile data being replaced by that of the currently logged-in user. Essentially, if a logged-in user were to refresh the profile page or manually change the URL ID from Silvia's profile (ID 1) to Ellie's profile (ID 30), without clicking/ choosing from the profile avatar but by modifying the URL directly, the displayed information would be the bio and other details of the logged-in user or the profile 'test', but the posts would belong to Ellie as per normal behaviour.
+
+I confirmed this issue by using console.log statements, which showed that the profiles were loading correctly in the console. It would indicate that the profile belongs to Ellie with ID 30, but a different profile would still be displayed.
 
 ## Deployment:
 
