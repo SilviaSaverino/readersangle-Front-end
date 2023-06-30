@@ -289,15 +289,33 @@ The useEffect hook is used to perform side effects in functional components. It 
 ## Testing:
 
 ### Manual testing:
+To ensure the proper functioning and performance of our website, i have conducted a series of manual testing procedures. These tests were carried out to validate various aspects of the site and ensure its smooth operation. The following are the key manual testing activities that were performed:
+
+![manual testing screenshot](./readme_assets/manualTesting.png)
 
 ## Validators:
 
 ## Bugs and fixes:
 An unresolved issue remains unresolved because even the tutors were uncertain about the cause of the issue.
 
+![known bug screenshot](./readme_assets/profileOveriddenBug.png)
+
 The problem involves the profile data being replaced by that of the currently logged-in user. Essentially, if a logged-in user were to refresh the profile page or manually change the URL ID from Silvia's profile (ID 1) to Ellie's profile (ID 30), without clicking/ choosing from the profile avatar but by modifying the URL directly, the displayed information would be the bio and other details of the logged-in user or the profile 'test', but the posts would belong to Ellie as per normal behaviour.
 
 I confirmed this issue by using console.log statements, which showed that the profiles were loading correctly in the console. It would indicate that the profile belongs to Ellie with ID 30, but a different profile would still be displayed.
+
+I encountered another bug that needed fixing, which involved the incrementation of the reviews count. When I investigated the issue further, I discovered that instead of incrementing the review count for the post, it was incrementing the review count for the user who added the like. The root of the problem was in the backend code.
+
+![screenshot of the reviewlike wrong count incrementation](./readme_assets/reviewcountBug.png)
+
+To resolve this issue, I made the necessary changes to the backend by following these steps:
+- 1) Corrected the queryset of my reviewlike views by removing the 'owner' part from it.
+
+![screenshot of the reviewlike queryset edited](./readme_assets/reviewcountBuginfoQueryset.png)
+
+- 2) Updated the related name in my reviewLike model from 'likes' to 'reviewlike'.
+
+![screenshot of the reviewlike model edited](./readme_assets/reviewcountBuginfo.png)
 
 ## Deployment:
 
