@@ -306,6 +306,11 @@ By employing these carefully selected colors and styles, I aim to create a visua
 
 
 ### Fonts:
+In my project, I have chosen the "Raleway" font to enhance the typography and overall visual appeal, with a fallback option of Sans-serif. Those fonts are applied to the entire application.
+
+![screenshot of raleway font](./readme_assets/ralewayfont.png)
+
+The "Raleway" font I chose for the project is versatile and easy to read. It fits nicely with the overall design and makes everything look professional and attractive. Whether it's titles, paragraphs, or other text, this font adds a nice touch to the application's appearance.
 
 ## Features:
 
