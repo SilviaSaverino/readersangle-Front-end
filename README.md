@@ -370,18 +370,66 @@ The Post Create Form offers the following features and functionalities:
 - Create and Cancel Buttons: Users can submit the completed form by clicking the "Create" button. In case they decide not to proceed, they can use the "Cancel" button to discard the form and return to the previous page.
 
 ### Post page:
+The Post Page is a central hub for users to explore and interact with individual posts. By accessing the Post Page, users can not only view the post itself but also engage in various actions related to the post and its reviews.
+Post Actions
 
-![](./readme_assets/noPosts.png)
-![](./readme_assets/postPage.png)
+![screenshot of postpage](./readme_assets/postPage.png)
+
+The Post Page offers the following actions and functionalities:
+- Leave a Review: Users have the opportunity to leave a review for the post. This allows them to share their thoughts, opinions, and feedback regarding the content. By leaving a review, users can contribute to the conversation and engage with the post's author and other readers.
+
+- View Reviews: The Post Page displays reviews from other users, providing valuable insights and perspectives. Users can read through these reviews to gain a deeper understanding of the post's impact and reception within the community.
+
+- Like/Unlike Reviews: Users have the ability to express their appreciation or disagreement with specific reviews by liking or unliking them. This feature allows for interactive engagement and helps highlight the most popular or impactful reviews.
+
+- Like/Unlike Post: Users can indicate their preference for the post itself by liking or unliking it. This feature is also available on the homepage and enables users to show their support and appreciation for the content they find engaging or valuable.
+
+#### Post Modification and Deletion
+If the selected post belongs to the user, additional actions become available:
+
+- Modify Post: Users can modify the content of their own posts. This functionality allows users to update or refine the information, ensuring accuracy and relevance.
+
+![screenshot of crud post functionality](./readme_assets/editingPostpng)
+
+- Delete Post: Users have the option to delete their own posts if they decide it is necessary, by clicking on the engine icon and selecting the intuitive trashcan icon. This feature provides control and flexibility, allowing users to manage their contributions as needed.
+
+#### Review Modification and Deletion
+Similar to post modification and deletion, if the review belongs to the user, they can perform the following actions:
+- Modify Review: Users can modify the content of their own reviews. This capability ensures that users can refine or update their opinions and feedback as necessary.
+
+![screenshot of editing review functionality](./readme_assets/editingReview.png)
+
+- Delete Review: Users have the ability to delete their own reviews by clicking on the engine icon and selecting the intuitive trashcan icon. This feature allows users to remove their feedback if they wish to do so.
 
 ### Profile page:
+The Profile Page serves as a platform for users to view and interact with other users' profiles. It also provides users with the ability to access and manage their own profile settings.
 
-![](./readme_assets/profilePage.png)
-![](./readme_assets/crudProfile.png)
-![](./readme_assets/editProfilePage.png)
-![](./readme_assets/editUsernamePw.png)
+Users can access other users' profiles by simply clicking on their profile avatar. Additionally, users have the option to access their own profile by clicking on the corresponding option in the navigation bar. This intuitive navigation allows for easy exploration and management of profiles.
+
+Upon landing on a specific profile page, users can view various profile statistics, including the number of posts posted and reviews left by that user. These statistics provide insights into the user's activity and contributions within the community.
+
+![screenshot of profile page](./readme_assets/profilePage.png)
+
+Each profile page displays a bio section, allowing users to provide additional information about themselves. This bio section offers users the opportunity to share a glimpse into their interests, background, or any other relevant details. It helps foster a sense of connection and understanding among users.
+
+Underneath the profile bio, users will find the posts left by the particular profile they are viewing. If the user has not posted anything yet, a message will be displayed indicating that the user has not made any posts. This allows users to easily browse through the posts contributed by the profile they are interested in.
+
+![screenshot of no posts results from profile page](./readme_assets/noPosts.png)
+
+When accessing their own profile, users have the ability to edit various profile settings. By clicking on the intuitive engine icon, a menu will appear with options to edit the bio, profile image, username, or password. Selecting any of these options will lead the user to a form where they can make the desired changes.
+
+![screenshot of crud menu option for profile](./readme_assets/crudProfile.png)
+
+On any of the profile editing pages, a form will be displayed, allowing users to make changes to their profile settings. Users have the option to save the changes by submitting the form or to cancel their intentions and return to the previous page. This gives users flexibility and control over their profile modifications.
+
+![screenshot of edit profile page form](./readme_assets/editProfilePage.png)
+
+![screenshot of edit username and change pw form](./readme_assets/editUsernamePw.png)
 
 ### Liked page:
+Users can easily access their liked posts by clicking on the "Liked" icon link in the navigation bar. This intuitive feature allows users to quickly navigate to a dedicated page where they can see a collection of posts they have previously liked.
+
+Once the user lands on the Liked Posts page, they will be presented with a compilation of posts that they have expressed their liking for. This collection provides a convenient way for users to revisit and explore the posts that have captured their interest and received their appreciation.
 
 ## Components and Re-use of compoments:
 
