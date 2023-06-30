@@ -186,21 +186,27 @@ As a logged-in user, I can update my username and password, allowing me to modif
 ### Wireframes:
 In order to gain a clearer visual representation of the layout and structure for Reader's angle, I utilized Balsamiq to create low-fidelity wireframes. These rough sketches provided a basic outline for the website's design and functionality.
 
+#### Sign in/up forms:
 ![wireframe screenshot for signIn, signUp forms page](./readme_assets/wfSignInSignUpForms.png)
 ![wireframe screenshot for signIn, signUp forms page on mobile screens](./readme_assets/wfSignInSignUpFormsMobile.png)
-
+---
+#### Homepage:
 ![wireframe screenshot for home page](./readme_assets/wfHomepage.png)
-![wireframe screenshot for home page on mobile screens](./readme_assets/wfHomepageMobile.png)
-
+![wireframe screenshot for home page on mobile screens](./readme_assets/wfHomePageMobile.png)
+---
+#### Share book form:
 ![wireframe screenshot for share book form page](./readme_assets/wfSharebook.png)
 ![wireframe screenshot for share book form on mobile screens](./readme_assets/wfSharebookMobile.png)
-
+---
+#### Post page:
 ![wireframe screenshot for post page](./readme_assets/wfPostpage.png)
-![wireframe screenshot for post page on mobile screens](./readme_assets/wfPostpageMobile.png)
-
+![wireframe screenshot for post page on mobile screens](./readme_assets/wfPostPageMobile.png)
+---
+#### Profile page:
 ![wireframe screenshot for Profile page](./readme_assets/wfProfilePage.png)
 ![wireframe screenshot for Profile page on mobile screens](./readme_assets/wfProfilePageMobile.png)
-
+---
+#### Edit profile form:
 ![wireframe screenshot for edit profile page](./readme_assets/wfEditProfile.png)
 ![wireframe screenshot for edit profile page on mobile screens](./readme_assets/wfEditProfileMobile.png)
 
