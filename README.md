@@ -32,13 +32,23 @@ It was important to me to provide a user experience that feels smooth, natural, 
 
 I adopted an agile development approach to keep track of my progress effectively. GitHub issues and projects played a crucial role in documenting and organizing the development process.
 
-For each user story, I created a GitHub issue and applied appropriate labels to categorize them. These user stories represented specific features or functionalities that needed to be implemented. To manage the overall backlog, I created a GitHub milestone to gather all the user stories initially.
+For each user story, I created a GitHub issue and applied appropriate labels to categorize them. These user stories represented specific features or functionalities that needed to be implemented. To manage the overall backlog, I created GitHub milestones to gather all the user stories initially.
+
+![screenshot of milestones](./readme_assets/milestones.png)
 
 To ensure a structured development process, I divided my work into iterations, each lasting for around 7 working days. However, the actual duration of each iteration varied as I needed to accommodate my work and other commitments.
+
+![screenshot of sprint](./readme_assets/sprints)
+
+![screenshot of milestone progression](./readme_assets/milestone_progression.png)
 
 To visualize and organize my tasks, I created a separate GitHub project board for each iteration. As I started working on an iteration, I moved the relevant user stories from the product backlog into the project board associated with that specific iteration.
 
 To track my progress effectively, I utilized a project kanban board within GitHub. This board allowed me to visualize the status of each user story. I moved them between columns like 'Todo', 'In Progress', and 'Done' based on their current stage of completion.
+
+![screenshot of agile development](./readme_assets/agile.png)
+
+![screenshot of agile development](./readme_assets/backlog2.png)
 
 By adopting these agile development practices and utilizing GitHub issues, projects, and kanban boards, I could manage my work efficiently. This approach helped me stay organized, prioritize tasks, and ensure timely completion for most of them! Please note that two features were left to implement from the following user stories.
 
@@ -50,6 +60,8 @@ By adopting these agile development practices and utilizing GitHub issues, proje
 
 Since this functionality were not implemented initially, other user stories such as filtering posts based on the reading status or generating recommendations based on the most followed posts, are still pending.
 To address this, I have chosen to preserve the original user stories in this documentation for future reference, allowing me to revisit and complete them at a more opportune time. However, I have removed these particular stories from the current project to accurately reflect the progress made and appropriately close the associated milestones.
+
+![screenshot of closed milestones](./readme_assets/milestones-closed.png)
 
 # Sprints, Epics and User Stories:
 
