@@ -217,17 +217,36 @@ The schema and data models are documented in the read me file of Reader's angle 
 
 ### Colours:
 
+![](./readme_assets/colourPalette.png)
+
 ### Fonts:
 
 ## Features:
 
 ### Homepage:
 
-### Sign In/Up Forms:
+![](./readme_assets/homePage.png)
 
-### Posts page:
+![](./readme_assets/searchBarNoResults.png)
+
+### Sign In/Up forms:
+
+![](./readme_assets/signInpage.png.png)
+![](./readme_assets/signUppage.png.png)
+
+### ShareBook form:
+
+![](./readme_assets/shareBook.png)
+
+### Post page:
+![](./readme_assets/noPosts.png)
+![](./readme_assets/postPage.png)
 
 ### Profile page:
+![](./readme_assets/profilePage.png)
+![](./readme_assets/crudProfile.png)
+![](./readme_assets/editProfilePage.png)
+![](./readme_assets/editUsernamePw.png)
 
 ### Liked page:
 
