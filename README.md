@@ -315,7 +315,7 @@ The "Raleway" font I chose for the project is versatile and easy to read. It fit
 ## Features:
 
 ### NavBar:
-The website features a persistent navbar that remains visible on the screen at all times, making navigation convenient and user-friendly. The navbar includes icon links to various pages of the website, ensuring easy access to different sections. This design choice enhances the overall navigation experience, allowing users to move smoothly between pages with ease.
+The website features a persistent navbar that remains visible on the screen at all times, making navigation convenient and user-friendly. The navbar includes icon links to various pages of the website depending on the user logged in status, ensuring easy access to different sections. This design choice enhances the overall navigation experience, allowing users to move smoothly between pages with ease.
 
 ![screenshot of reader's angle navBar](./readme_assets/navbar.png)
 
@@ -324,9 +324,17 @@ For mobile screens, the navbar is optimized to save space and provide a seamless
 ![screenshot of reader's angle navBar](./readme_assets/navbarMobile.png)
 
 ### Sign In/Up forms:
+I have implemented two simple forms to facilitate the user sign up and sign in processes. These forms serve as a gateway for users to access the features and functionalities of the website. The forms are designed to be straightforward and user-friendly, ensuring a seamless registration and login experience.
 
-![](./readme_assets/signInpage.png.png)
-![](./readme_assets/signUppage.png.png)
+The Sign Up form allows new users to create an account. It includes input fields for essential details such as username and password. Upon submitting the form, the user's information is securely stored, and they are granted access to the website's features.
+
+![screenshot of signIn form page](./readme_assets/signInpage.png.png)
+
+The Sign In form enables registered users to log in to their existing accounts. Users can enter their credentials. Upon successful authentication, they gain access to their personalized account and can explore and interact with the website's content.
+
+![screenshot of signIn form page](./readme_assets/signUppage.png.png)
+
+Below both the Sign Up and Sign In forms, I have included links to check if the user already has an account or not. These links provide a convenient way for users to verify their account status and redirect them accordingly. 
 
 ### Homepage:
 Upon visiting Reader's Angle homepage, users are greeted with a collection of posts from other users, and they can effortlessly scroll through the content thanks to the infinite scroll functionality. 
