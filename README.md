@@ -516,6 +516,11 @@ The useState hook allows you to add state to functional components. By calling t
 The useEffect hook is used to perform side effects in functional components. It accepts a callback function and an optional array of dependencies. The callback function will be executed after the component has rendered, and it can handle tasks like data fetching, subscriptions, or manually interacting with the DOM. The dependencies array allows you to specify values that the effect depends on. If any of these values change, the effect will re-run. This hook is essential for handling side effects and managing the lifecycle of functional components.
 
 ## Crud functionalities:
+CRUD stands for Create, Read, Update, and Delete. These are the fundamental operations performed on data in most applications. By implementing CRUD functionality, users can perform various actions related to data management within the application.
+
+In this project, all CRUD (Create, Read, Update, Delete) functionalities are conveniently accessible by clicking on the engine icon. This icon serves as a centralized hub for managing data within the application. By clicking on the engine icon, users can easily access the create, read, update, and delete operations for posts, reviews, profiles, and other relevant data. This intuitive design ensures a seamless user experience and empowers users to efficiently interact with and manage their data.
+
+In addition, a robust set of security measures has been implemented to prevent unauthorized access and ensure data integrity. Specifically, the engine icon, which provides access to CRUD functionalities, is only visible to the owner of the respective content. This ensures that users can only modify or delete their own posts, reviews, profiles, and other personal data, and not interfere with or alter content owned by other users. By implementing these security measures, the project ensures a secure and reliable environment where users can confidently interact with their own data while respecting the privacy and ownership of others.
 
 ## Frameworks, libraries and dependencies:
 
