@@ -38,7 +38,7 @@ For each user story, I created a GitHub issue and applied appropriate labels to 
 
 To ensure a structured development process, I divided my work into iterations, each lasting for around 7 working days. However, the actual duration of each iteration varied as I needed to accommodate my work and other commitments.
 
-![screenshot of sprint](./readme_assets/sprints)
+![screenshot of sprint](./readme_assets/sprints.png)
 
 ![screenshot of milestone progression](./readme_assets/milestone_progression.png)
 
