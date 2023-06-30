@@ -361,7 +361,7 @@ The Post Create Form offers the following features and functionalities:
 
 - Genre Selection: Users can select the genre of the book from a dropdown menu. The available genre options include Fiction, Non-Fiction, Mystery, Fantasy, Romance, Thriller, Biography, Poetry, Children, and Cookbooks.
 
--Book Synopsis: A text area is available for users to write a brief synopsis or description of the book. This field allows users to provide additional context and entice other readers.
+- Book Synopsis: A text area is available for users to write a brief synopsis or description of the book. This field allows users to provide additional context and entice other readers.
 
 - Image Upload: Users can upload an image related to the book. By clicking on the designated area or tapping on it, users can select an image file from their device. The selected image will be displayed, providing visual representation of the book.
 
@@ -389,7 +389,7 @@ If the selected post belongs to the user, additional actions become available:
 
 - Modify Post: Users can modify the content of their own posts. This functionality allows users to update or refine the information, ensuring accuracy and relevance.
 
-![screenshot of crud post functionality](./readme_assets/editingPostpng)
+![screenshot of crud post functionality](./readme_assets/editingPost.png)
 
 - Delete Post: Users have the option to delete their own posts if they decide it is necessary, by clicking on the engine icon and selecting the intuitive trashcan icon. This feature provides control and flexibility, allowing users to manage their contributions as needed.
 
