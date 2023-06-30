@@ -314,16 +314,33 @@ The "Raleway" font I chose for the project is versatile and easy to read. It fit
 
 ## Features:
 
-### Homepage:
+### NavBar:
+The website features a persistent navbar that remains visible on the screen at all times, making navigation convenient and user-friendly. The navbar includes icon links to various pages of the website, ensuring easy access to different sections. This design choice enhances the overall navigation experience, allowing users to move smoothly between pages with ease.
 
-![](./readme_assets/homePage.png)
+![screenshot of reader's angle navBar](./readme_assets/navbar.png)
 
-![](./readme_assets/searchBarNoResults.png)
+For mobile screens, the navbar is optimized to save space and provide a seamless mobile experience. It utilizes a burger icon, commonly known as a hamburger menu, which, when clicked or tapped, expands to reveal the navigation links. By tapping outside of the burger menu,this closes automatically so that the users can quickly switch their focus back to the main content or perform other actions on the webpage without the menu obstructing their view. This approach maximizes the screen space for content, while still providing a user-friendly and intuitive way to access different sections of the website on smaller devices.
+
+![screenshot of reader's angle navBar](./readme_assets/navbarMobile.png)
 
 ### Sign In/Up forms:
 
 ![](./readme_assets/signInpage.png.png)
 ![](./readme_assets/signUppage.png.png)
+
+### Homepage:
+Upon visiting Reader's Angle homepage, users are greeted with a collection of posts from other users, and they can effortlessly scroll through the content thanks to the infinite scroll functionality. 
+
+![screenshot of reader's angle homepage](./readme_assets/homePage.png)
+
+The homepage also showcases two special components. Firstly, there is a section highlighting the most popular posts, providing users with an insight into trending content. Secondly, there is a component listing other users' profiles, fostering community engagement. Notably, on mobile screens, these components are presented as a carousel that automatically slides every few seconds, optimizing the display space and enhancing the user experience.
+
+![screenshot of reader's angle homepage on mobile](./readme_assets/homePageMobile.png)
+
+The navigation on the homepage is designed to be highly intuitive, allowing users to easily explore different sections of the website. Additionally, a search bar is available, enabling users to search for specific posts, genres, or users. In the event of no search results, a friendly message will be displayed, suggesting users to adjust their search keywords for better results.
+
+![screenshot of search bar no results ](./readme_assets/searchBarNoResults.png)
+
 
 ### ShareBook form:
 
