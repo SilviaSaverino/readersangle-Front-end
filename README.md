@@ -585,8 +585,7 @@ To resolve this issue, I made the necessary changes to the backend by following 
 ## Deployment:
 
 ## Credits:
-
-To complete this website, I relied on various external sources for guidance and resources. Here'sa list of some of them and how I utilized them:
+To complete this website, I relied on various external sources for guidance and resources. Here's a list of some of them and how I utilized them:
 
 - Moments Walkthrough Project from Code Institute: I referred to the Moments walkthrough project from Code Institute as a valuable resource. It provided a practical example and guidance on implementing certain features or functionalities that I wanted to incorporate into my website. It helped me understand the concepts and best practices related to building a similar project.
 
@@ -598,6 +597,7 @@ To complete this website, I relied on various external sources for guidance and 
 
 - Pinterest and Amazon Websites: For images related to books and posts on my website, I obtained them from sources like Pinterest and Amazon. These platforms often provide a wide range of visual content related to various topics, including books and products. By using images from these sources, I was able to enhance the visual appeal and content representation on my website.
 
-By utilizing these and other external sources, I could leverage existing knowledge, community support, and resources to develop my website effectively. It allowed me to take advantage of best practices, learn from others' experiences, and incorporate visually appealing content into my project.
+By utilizing these and other external sources, I could leverage existing knowledge, community support, and resources to develop my website effectively. I've constantly referred to module of CodeInstitute and took some references or ideas from other alumnis projects. All of the above allowed me to take advantage of best practices, learn from others' experiences, and incorporate visually appealing content into my project.
 
 ## Acknowledgements:
+I would like to thank my mentor Spencer for his support and for taking the time to review this project. I am thankful for my dear friend Francesco for being a constant source of support, and for my family members Martina and Cosimo for their love and encouragement. I would also like to acknowledge the creators and contributors of the online resources mentioned in the Credits section for providing valuable guidance and insights.
