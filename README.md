@@ -353,7 +353,7 @@ The navigation on the homepage is designed to be highly intuitive, allowing user
 ### ShareBook form:
 The Post Create Form is a crucial part of the application that allows users to create new posts. This form is designed to capture essential details about the post, such as the book title, author, genre, and book synopsis. By filling out the form and submitting it, users can contribute their unique content to the platform.
 
-![screenshot of posts create form page](./readme_assets/shareBook.png)
+![screenshot of posts create form page](./readme_assets/shareBookForm.png)
 
 The Post Create Form offers the following features and functionalities:
 
