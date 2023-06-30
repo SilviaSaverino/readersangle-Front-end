@@ -328,11 +328,11 @@ I have implemented two simple forms to facilitate the user sign up and sign in p
 
 The Sign Up form allows new users to create an account. It includes input fields for essential details such as username and password. Upon submitting the form, the user's information is securely stored, and they are granted access to the website's features.
 
-![screenshot of signIn form page](./readme_assets/signInpage.png.png)
+![screenshot of signIn form page](./readme_assets/signInpage.png)
 
 The Sign In form enables registered users to log in to their existing accounts. Users can enter their credentials. Upon successful authentication, they gain access to their personalized account and can explore and interact with the website's content.
 
-![screenshot of signIn form page](./readme_assets/signUppage.png.png)
+![screenshot of signIn form page](./readme_assets/signUpPage.png)
 
 Below both the Sign Up and Sign In forms, I have included links to check if the user already has an account or not. These links provide a convenient way for users to verify their account status and redirect them accordingly. 
 
@@ -351,8 +351,23 @@ The navigation on the homepage is designed to be highly intuitive, allowing user
 
 
 ### ShareBook form:
+The Post Create Form is a crucial part of the application that allows users to create new posts. This form is designed to capture essential details about the post, such as the book title, author, genre, and book synopsis. By filling out the form and submitting it, users can contribute their unique content to the platform.
 
-![](./readme_assets/shareBook.png)
+![screenshot of posts create form page](./readme_assets/shareBook.png)
+
+The Post Create Form offers the following features and functionalities:
+
+- Book Details: The form includes input fields for users to enter the book title and author's name. These fields help provide accurate information about the post's content.
+
+- Genre Selection: Users can select the genre of the book from a dropdown menu. The available genre options include Fiction, Non-Fiction, Mystery, Fantasy, Romance, Thriller, Biography, Poetry, Children, and Cookbooks.
+
+-Book Synopsis: A text area is available for users to write a brief synopsis or description of the book. This field allows users to provide additional context and entice other readers.
+
+- Image Upload: Users can upload an image related to the book. By clicking on the designated area or tapping on it, users can select an image file from their device. The selected image will be displayed, providing visual representation of the book.
+
+- Form Validation: The form performs validation checks on the entered data to ensure completeness and accuracy. If any errors or missing information are detected, corresponding warning messages will be displayed, guiding users to correct their inputs.
+
+- Create and Cancel Buttons: Users can submit the completed form by clicking the "Create" button. In case they decide not to proceed, they can use the "Cancel" button to discard the form and return to the previous page.
 
 ### Post page:
 
