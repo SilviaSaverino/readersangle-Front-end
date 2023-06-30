@@ -183,7 +183,26 @@ As a logged-in user, I can update my username and password, allowing me to modif
 
 ## Project Planning:
 
-### Mockups:
+### Wireframes:
+In order to gain a clearer visual representation of the layout and structure for Reader's angle, I utilized Balsamiq to create low-fidelity wireframes. These rough sketches provided a basic outline for the website's design and functionality.
+
+![wireframe screenshot for signIn, signUp forms page](./readme_assets/wfSignInSignUpForms.png)
+![wireframe screenshot for signIn, signUp forms page on mobile screens](./readme_assets/wfSignInSignUpFormsMobile.png)
+
+![wireframe screenshot for home page](./readme_assets/wfHomepage.png)
+![wireframe screenshot for home page on mobile screens](./readme_assets/wfHomepageMobile.png)
+
+![wireframe screenshot for share book form page](./readme_assets/wfSharebook.png)
+![wireframe screenshot for share book form on mobile screens](./readme_assets/wfSharebookMobile.png)
+
+![wireframe screenshot for post page](./readme_assets/wfPostpage.png)
+![wireframe screenshot for post page on mobile screens](./readme_assets/wfPostpageMobile.png)
+
+![wireframe screenshot for Profile page](./readme_assets/wfProfilePage.png)
+![wireframe screenshot for Profile page on mobile screens](./readme_assets/wfProfilePageMobile.png)
+
+![wireframe screenshot for edit profile page](./readme_assets/wfEditProfile.png)
+![wireframe screenshot for edit profile page on mobile screens](./readme_assets/wfEditProfileMobile.png)
 
 ### Schema:
 The schema and data models are documented in the read me file of Reader's angle backend [Reader's angle Backend](https://github.com/SilviaSaverino/Reader-s-angle-Back-end)
