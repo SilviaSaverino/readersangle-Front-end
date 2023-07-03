@@ -8,6 +8,14 @@ Using React, I crafted various components that work together harmoniously to cre
 
 It was important to me to provide a user experience that feels smooth, natural, and enjoyable, allowing readers to fully immerse themselves in the website and connect with fellow book lovers.
 
+When developing my project, I recognized the importance of incorporating responsive design principles. By implementing this approach, I aimed to provide a seamless and enjoyable experience for readers, irrespective of the device they use to access the content.
+
+![screenshot of amiresponsive website results](./readme_assets/amiresponsive.png)
+
+By prioritizing responsive design, I have ensured that readers can access and enjoy my project's content without encountering any usability issues, regardless of the device they choose to engage with.
+
+Check out the live site: https://readersangle-frontend-2.herokuapp.com
+
 ## Project Goals:
 
 - Provide an intuitive and user-friendly platform for readers to share their thoughts, opinions, and recommendations on books.
