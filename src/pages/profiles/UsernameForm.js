@@ -20,6 +20,7 @@ import appStyles from "../../App.module.css";
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [timeoutInstance, setTimeoutInstance] = useState(null);
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
@@ -47,13 +48,25 @@ const UsernameForm = () => {
         username,
       }));
       setShowSuccessMessage(true);
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
         history.goBack();
       }, 1500);
+      if (timeoutInstance) {
+        clearTimeout(timeoutInstance);
+      }
+      setTimeoutInstance(timeout);
     } catch (err) {
       setErrors(err.response?.data);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutInstance) {
+        clearTimeout(timeoutInstance);
+      }
+    };
+  }, [timeoutInstance]);
 
   return (
     <Row>

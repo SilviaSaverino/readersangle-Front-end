@@ -19,6 +19,7 @@ const UserPasswordForm = () => {
   const { id } = useParams();
   const currentUser = useCurrentUser();
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [timeoutInstance, setTimeoutInstance] = useState(null);
 
   const [userData, setUserData] = useState({
     new_password1: "",
@@ -28,6 +29,8 @@ const UserPasswordForm = () => {
 
   const [errors, setErrors] = useState({});
 
+
+  
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -46,13 +49,25 @@ const UserPasswordForm = () => {
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
       setShowSuccessMessage(true);
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
         history.goBack();;
       }, 1500);
+      if (timeoutInstance) {
+        clearTimeout(timeoutInstance);
+      }
+      setTimeoutInstance(timeout);
     } catch (err) {
       setErrors(err.response?.data);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutInstance) {
+        clearTimeout(timeoutInstance);
+      }
+    };
+  }, [timeoutInstance]);
 
   return (
     <Row>

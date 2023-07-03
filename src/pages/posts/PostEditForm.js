@@ -50,7 +50,6 @@ function PostEditForm() {
   const [timeoutInstance, setTimeoutInstance] = useState(null);
 
   useEffect(() => {
-
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
@@ -61,7 +60,6 @@ function PostEditForm() {
     };
 
     handleMount();
-
   }, [history, id]);
 
   const handleChange = (event) => {
@@ -80,7 +78,7 @@ function PostEditForm() {
       });
     }
   };
-  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -95,33 +93,29 @@ function PostEditForm() {
     }
 
     try {
-        await axiosReq.put(`/posts/${id}/`, formData);
-  
-        setShowSuccessMessage(true);
-  
-        const timeout = setTimeout(() => {
-          history.push(`/posts/${id}`);
-        }, 1500);
-  
-        if (timeoutInstance) {
-          clearTimeout(timeoutInstance);
-        }
-  
-        setTimeoutInstance(timeout);
-      } catch (err) {
-        if (err.response?.status !== 401) {
-          setErrors(err.response?.data);
-        }
+      await axiosReq.put(`/posts/${id}/`, formData);
+      setShowSuccessMessage(true);
+      const timeout = setTimeout(() => {
+        history.push(`/posts/${id}`);
+      }, 1500);
+      if (timeoutInstance) {
+        clearTimeout(timeoutInstance);
+      }
+      setTimeoutInstance(timeout);
+    } catch (err) {
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutInstance) {
+        clearTimeout(timeoutInstance);
       }
     };
-  
-    useEffect(() => {
-      return () => {
-        if (timeoutInstance) {
-          clearTimeout(timeoutInstance);
-        }
-      };
-    }, [timeoutInstance]);
+  }, [timeoutInstance]);
 
   const textFields = (
     <div className="text-center">

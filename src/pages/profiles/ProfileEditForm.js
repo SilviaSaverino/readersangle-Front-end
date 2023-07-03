@@ -22,6 +22,7 @@ const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [timeoutInstance, setTimeoutInstance] = useState(null);
   const { id } = useParams();
   const history = useHistory();
   const imageFile = useRef();
@@ -76,13 +77,25 @@ const ProfileEditForm = () => {
         profile_image: data.image,
       }));
       setShowSuccessMessage(true);
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
         history.goBack();
       }, 1500);
+      if (timeoutInstance) {
+        clearTimeout(timeoutInstance);
+      }
+      setTimeoutInstance(timeout);
     } catch (err) {
       setErrors(err.response?.data);
     }
   };
+  
+  useEffect(() => {
+    return () => {
+      if (timeoutInstance) {
+        clearTimeout(timeoutInstance);
+      }
+    };
+  }, [timeoutInstance]);
 
   const textFields = (
     <>
