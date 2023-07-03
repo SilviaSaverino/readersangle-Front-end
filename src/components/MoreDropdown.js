@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 import styles from "../styles/MoreDropdown.module.css";
+import btnStyles from "../styles/Button.module.css";
 import { useHistory } from "react-router";
 
 const Gears = React.forwardRef(({ onClick }, ref) => (
@@ -15,30 +18,65 @@ const Gears = React.forwardRef(({ onClick }, ref) => (
 ));
 
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
-  return (
-    <Dropdown className="ml-auto" drop="left">
-      <Dropdown.Toggle as={Gears} />
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
-      <Dropdown.Menu
-        className="text-center"
-        popperConfig={{ strategy: "fixed" }}
+  const handleDeleteClick = () => {
+    setShowDeleteConfirmation(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    handleDelete();
+    setShowDeleteConfirmation(false);
+  };
+
+  const handleDeleteCancel = () => {
+    setShowDeleteConfirmation(false);
+  };
+
+  return (
+    <>
+      <Dropdown className="ml-auto" drop="left">
+        <Dropdown.Toggle as={Gears} />
+
+        <Dropdown.Menu
+          className="text-center"
+          popperConfig={{ strategy: "fixed" }}
+        >
+          <Dropdown.Item
+            className={styles.DropdownItem}
+            onClick={handleEdit}
+            aria-label="edit"
+          >
+            <i className="fas fa-edit" />
+          </Dropdown.Item>
+          <Dropdown.Item
+            className={styles.DropdownItem}
+            onClick={handleDeleteClick}
+            aria-label="delete"
+          >
+            <i className="fas fa-trash-alt" />
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+
+      <Modal
+        show={showDeleteConfirmation}
+        onHide={handleDeleteCancel}
       >
-        <Dropdown.Item
-          className={styles.DropdownItem}
-          onClick={handleEdit}
-          aria-label="edit"
-        >
-          <i className="fas fa-edit" />
-        </Dropdown.Item>
-        <Dropdown.Item
-          className={styles.DropdownItem}
-          onClick={handleDelete}
-          aria-label="delete"
-        >
-          <i className="fas fa-trash-alt" />
-        </Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+        <Modal.Header className={styles.CustomModal}>
+          <Modal.Title><strong>Confirm Deletion</strong></Modal.Title>
+        </Modal.Header>
+        <Modal.Body className={styles.CustomModal}>Are you sure you want to delete this?</Modal.Body>
+        <Modal.Footer className="justify-content-center">
+          <Button className={`${btnStyles.Button} ${btnStyles.Dull}`} onClick={handleDeleteCancel}>
+            No, go back
+          </Button>
+          <Button className={`${btnStyles.Button} ${btnStyles.Dull}`} variant="danger" onClick={handleDeleteConfirm}>
+            Yes, delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 };
 
