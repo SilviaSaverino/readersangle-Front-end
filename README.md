@@ -316,7 +316,6 @@ Each section heading, represented by h5 tags, features a soothing beige color (#
 
 By employing these carefully selected colors and styles, I aim to create a visually appealing, user-friendly, and comforting experience for users navigating through the website.
 
-
 ### Fonts:
 In my project, I have chosen the "Raleway" font to enhance the typography and overall visual appeal, with a fallback option of Sans-serif. Those fonts are applied to the entire application.
 
@@ -556,7 +555,19 @@ To ensure the proper functioning and performance of our website, i have conducte
 
 ![manual testing screenshot](./readme_assets/manualTesting.png)
 
-## Validators:
+## Validators & Lighthouse:
+
+To ensure the quality and adherence to standards in my code, I have rigorously tested it using HTML and CSS validators. These validators are powerful tools that help identify and rectify any syntax errors, potential issues, or non-compliance with coding standards. By subjecting my code to these validators, I received excellent results, affirming the robustness and correctness of my markup and styles.
+
+As part of my dedication to delivering exceptional web experiences, I conducted a comprehensive assessment of my web application using Lighthouse, a powerful auditing tool. Lighthouse evaluates various aspects of web performance, accessibility, best practices, and SEO, providing valuable insights into areas for improvement. While I achieved outstanding scores of over 90% across most categories, I am actively addressing the performance area, which currently stands at 81%.
+
+![screenshot of lighthouse results](./readme_assets/lighthouse.png)
+
+EsLint warnings are valuable indicators that help us identify potential issues in our codebase. One such warning is related to the 'dom' issue raised by EsLint in the 'react-router-dom' module. It's important to note that despite this warning, the functionality of the application remains unaffected.
+
+While working on my web application's development, I came across an EsLint warning regarding the 'dom' issue. I want to emphasize that this warning doesn't have any impact on the functionality of the application.
+
+![screenshot of esLing warning](./readme_assets/domProblem.png)
 
 ## Bugs and fixes:
 

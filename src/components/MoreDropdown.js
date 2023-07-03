@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import styles from "../styles/MoreDropdown.module.css";
 import btnStyles from "../styles/Button.module.css";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
 const Gears = React.forwardRef(({ onClick }, ref) => (
   <i
