@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Container, Carousel } from "react-bootstrap";
+import Carousel from "react-bootstrap/Carousel";
+import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/PopularPosts.module.css";

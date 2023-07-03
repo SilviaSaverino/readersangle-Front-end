@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Media, Tooltip, OverlayTrigger } from "react-bootstrap";
+import Media from "react-bootstrap/Media";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { MoreDropdown } from "../../components/MoreDropdown";
