@@ -62,6 +62,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
       <Modal
         show={showDeleteConfirmation}
         onHide={handleDeleteCancel}
+        centered
       >
         <Modal.Header className={styles.CustomModal}>
           <Modal.Title><strong>Confirm Deletion</strong></Modal.Title>

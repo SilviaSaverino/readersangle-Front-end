@@ -59,7 +59,7 @@ By adopting these agile development practices and utilizing GitHub issues, proje
 - Follow a post: As a logged-in user, I can follow a post so that i stay enganged with discussion/reviews developments.
 
 Since this functionality were not implemented initially, other user stories such as filtering posts based on the reading status or generating recommendations based on the most followed posts, are still pending.
-To address this, I have chosen to preserve the original user stories in this documentation for future reference, allowing me to revisit and complete them at a more opportune time. However, I have removed these particular stories from the current project to accurately reflect the progress made and appropriately close the associated milestones.
+To address this, I have chosen to preserve the original user stories in this documentation for future reference, allowing me to revisit and complete them at a more opportune time. However,instead of deleting those from the project and milestones, I have marked these particular stories as completed to close the associated milestones, with the intention to revisit this in the future.
 
 ![screenshot of closed milestones](./readme_assets/milestones-closed.png)
 
