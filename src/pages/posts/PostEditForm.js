@@ -19,6 +19,7 @@ import Asset from "../../components/Asset.js";
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [postData, setPostData] = useState({
     title: "",
     author: "",
@@ -46,7 +47,10 @@ function PostEditForm() {
   const history = useHistory();
   const { id } = useParams();
 
+  const [timeoutInstance, setTimeoutInstance] = useState(null);
+
   useEffect(() => {
+
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
@@ -57,6 +61,7 @@ function PostEditForm() {
     };
 
     handleMount();
+
   }, [history, id]);
 
   const handleChange = (event) => {
@@ -75,6 +80,7 @@ function PostEditForm() {
       });
     }
   };
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -89,14 +95,33 @@ function PostEditForm() {
     }
 
     try {
-      await axiosReq.put(`/posts/${id}/`, formData);
-      history.push(`/posts/${id}`);
-    } catch (err) {
-      if (err.response?.status !== 401) {
-        setErrors(err.response?.data);
+        await axiosReq.put(`/posts/${id}/`, formData);
+  
+        setShowSuccessMessage(true);
+  
+        const timeout = setTimeout(() => {
+          history.push(`/posts/${id}`);
+        }, 1500);
+  
+        if (timeoutInstance) {
+          clearTimeout(timeoutInstance);
+        }
+  
+        setTimeoutInstance(timeout);
+      } catch (err) {
+        if (err.response?.status !== 401) {
+          setErrors(err.response?.data);
+        }
       }
-    }
-  };
+    };
+  
+    useEffect(() => {
+      return () => {
+        if (timeoutInstance) {
+          clearTimeout(timeoutInstance);
+        }
+      };
+    }, [timeoutInstance]);
 
   const textFields = (
     <div className="text-center">
@@ -162,7 +187,11 @@ function PostEditForm() {
           {message}
         </Alert>
       ))}
-
+      {showSuccessMessage && (
+        <Alert variant="success" className="text-center">
+          Success, post edited!
+        </Alert>
+      )}
       <Button className={`${btnStyles.Button} ${btnStyles.Dull}`} type="submit">
         Save
       </Button>

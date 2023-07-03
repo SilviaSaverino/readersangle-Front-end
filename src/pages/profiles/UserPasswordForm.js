@@ -18,6 +18,7 @@ const UserPasswordForm = () => {
   const history = useHistory();
   const { id } = useParams();
   const currentUser = useCurrentUser();
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const [userData, setUserData] = useState({
     new_password1: "",
@@ -44,7 +45,10 @@ const UserPasswordForm = () => {
     event.preventDefault();
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
-      history.goBack();
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        history.goBack();;
+      }, 1500);
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -85,6 +89,11 @@ const UserPasswordForm = () => {
                 {message}
               </Alert>
             ))}
+            {showSuccessMessage && (
+              <Alert variant="success" className="text-center">
+                Success, password edited!
+              </Alert>
+            )}
             <Button
               className={`${btnStyles.Button} ${btnStyles.Dull}`}
               type="submit"

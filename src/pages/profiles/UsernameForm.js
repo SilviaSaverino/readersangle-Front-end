@@ -19,6 +19,7 @@ import appStyles from "../../App.module.css";
 
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
@@ -45,7 +46,10 @@ const UsernameForm = () => {
         ...prevUser,
         username,
       }));
-      history.goBack();
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        history.goBack();
+      }, 1500);
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -70,6 +74,11 @@ const UsernameForm = () => {
                 {message}
               </Alert>
             ))}
+            {showSuccessMessage && (
+              <Alert variant="success" className="text-center">
+                Success, username edited!
+              </Alert>
+            )}
             <Button
               className={`${btnStyles.Button} ${btnStyles.Dull}`}
               type="submit"

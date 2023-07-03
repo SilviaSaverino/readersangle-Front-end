@@ -21,6 +21,7 @@ import appStyles from "../../App.module.css";
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const { id } = useParams();
   const history = useHistory();
   const imageFile = useRef();
@@ -74,7 +75,10 @@ const ProfileEditForm = () => {
         owner: data.name,
         profile_image: data.image,
       }));
-      history.goBack();
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        history.goBack();
+      }, 1500);
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -97,7 +101,11 @@ const ProfileEditForm = () => {
           {message}
         </Alert>
       ))}
-
+      {showSuccessMessage && (
+        <Alert variant="success" className="text-center">
+          Success, profile edited!
+        </Alert>
+      )}
       <Button className={`${btnStyles.Button} ${btnStyles.Dull}`} type="submit">
         Save
       </Button>
