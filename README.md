@@ -586,7 +586,7 @@ An unresolved issue remains unresolved because even the tutors were uncertain ab
 The problem involves the profile data being replaced by that of the currently logged-in user. Essentially, if a logged-in user were to refresh the profile page or manually change the URL ID from Silvia's profile (ID 1) to Ellie's profile (ID 30), without clicking/ choosing from the profile avatar but by modifying the URL directly, the displayed information would be the bio and other details of the logged-in user or the profile 'test', but the posts would belong to Ellie as per normal behaviour.
 
 I confirmed this issue by using console.log statements, which showed that the profiles were loading correctly in the console. It would indicate that the profile belongs to Ellie with ID 30, but a different profile would still be displayed.
-
+---
 I encountered another bug that needed fixing, which involved the incrementation of the reviews count. When I investigated the issue further, I discovered that instead of incrementing the review count for the post, it was incrementing the review count for the user who added the like. The root of the problem was in the backend code.
 
 ![screenshot of the reviewlike wrong count incrementation](./readme_assets/reviewcountBug.png)
@@ -600,6 +600,8 @@ To resolve this issue, I made the necessary changes to the backend by following 
 - 2. Updated the related name in my reviewLike model from 'likes' to 'reviewlike'.
 
 ![screenshot of the reviewlike model edited](./readme_assets/reviewcountBuginfo.png)
+---
+Another known bug occurs when users attempt to edit their own posts. Specifically, while on the editing page, users are required to re-enter their author information and select the genre once again. Failure to do so will prevent the posts from being saved. However, if users follow this procedure, the functionality works fine.
 
 ## Deployment:
 
