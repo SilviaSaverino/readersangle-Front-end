@@ -75,14 +75,14 @@ function ProfilePage() {
               <div>Reviews:</div>
               <div>{profile?.reviews_count}</div>
             </Col>
-            <Col xs={3} className="my-2">
+            {/* <Col xs={3} className="my-2">
               <div>Has read:</div>
               <div>{profile?.read_posts_count}</div>
             </Col>
             <Col xs={3} className="my-2">
               <div>To read:</div>
               <div>{profile?.will_read_posts_count}</div>
-            </Col>
+            </Col> */}
           </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
