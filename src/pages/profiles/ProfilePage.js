@@ -67,22 +67,14 @@ function ProfilePage() {
           </Row>
 
           <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2">
+            <Col xs={6} className="my-2">
               <div>Posts:</div>
               <div>{profile?.posts_count}</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={6} className="my-2">
               <div>Reviews:</div>
               <div>{profile?.reviews_count}</div>
             </Col>
-            {/* <Col xs={3} className="my-2">
-              <div>Has read:</div>
-              <div>{profile?.read_posts_count}</div>
-            </Col>
-            <Col xs={3} className="my-2">
-              <div>To read:</div>
-              <div>{profile?.will_read_posts_count}</div>
-            </Col> */}
           </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
