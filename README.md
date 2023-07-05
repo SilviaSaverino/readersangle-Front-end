@@ -14,7 +14,11 @@ When developing my project, I recognized the importance of incorporating respons
 
 By prioritizing responsive design, I have ensured that readers can access and enjoy my project's content without encountering any usability issues, regardless of the device they choose to engage with.
 
-Check out the live site: https://readersangle-frontend-2.herokuapp.com
+## Links to live site and back-end repository:
+
+Check out the live site: [Reader's angle website](https://readersangle-frontend-2.herokuapp.com)
+
+If you'd like to check the back end repository, follow this link : [Reader's angle back end repository](https://github.com/SilviaSaverino/Reader-s-angle-Back-end)
 
 ## Project Goals:
 
