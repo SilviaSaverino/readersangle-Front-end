@@ -4,19 +4,19 @@
   border-radius: 2px;
   margin-bottom: 16px;
   text-align: center;
-  width: 100%; 
+  width: 100%;
 }
 
 .Fit {
-    max-height: 50vh;
-    overflow: scroll;
-} 
+  max-height: 50vh;
+  overflow: scroll;
+}
 
 .Image {
-    max-height: 50vh;
-    max-width: 100%;
-    object-fit: contain;
-  }
+  max-height: 50vh;
+  max-width: 100%;
+  object-fit: contain;
+}
 
 .Post figure,
 h5 {
@@ -24,8 +24,8 @@ h5 {
 }
 
 .PostBar {
-    background-color: #fcf8ed;
-    margin-top: 15px;
+  background-color: #fcf8ed;
+  margin-top: 15px;
 }
 
 .Heart {
