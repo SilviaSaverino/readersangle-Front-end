@@ -577,9 +577,13 @@ As part of my dedication to delivering exceptional web experiences, I conducted 
 
 EsLint warnings are valuable indicators that help us identify potential issues in our codebase. One such warning is related to the 'dom' issue raised by EsLint in the 'react-router-dom' module. It's important to note that despite this warning, the functionality of the application remains unaffected.
 
-While working on my web application's development, I came across an EsLint warning regarding the 'dom' issue. I want to emphasize that this warning doesn't have any impact on the functionality of the application.
+While working on my web application's development, I came across an EsLint warning regarding the 'dom' issue. I want to emphasize that this warning didn't have any impact on the functionality of the application.
 
-![screenshot of esLing warning](./readme_assets/domProblem.png)
+![screenshot of esLint warning](./readme_assets/domProblem.png)
+
+This was fixed by following the instructions on the terminal, and no other errors were being displayed afterall.
+
+![screenshot of esLint no problems](./readme_assets/noProblems.png)
 
 ## Bugs and fixes:
 
